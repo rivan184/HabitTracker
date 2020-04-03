@@ -46,21 +46,74 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Add Habit"/>
                                 <connections>
-                                    <action selector="addHabitAction:" destination="wSM-wY-Lrv" eventType="touchUpInside" id="QrA-WG-Je9"/>
+                                    <action selector="addNewHabit:" destination="wSM-wY-Lrv" eventType="touchUpInside" id="B5l-hm-gtQ"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4W1-dI-HkW">
+                                <rect key="frame" x="20" y="205" width="374" height="583"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="144" id="oc0-up-TkK" customClass="CustomTableViewCell" customModule="HabitTrackerApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="144"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oc0-up-TkK" id="3aT-G9-c3K">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="144"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="nRO-KP-Qrb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="144"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="habitDesc" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdu-Rz-2T7">
+                                                            <rect key="frame" x="19" y="64" width="320" height="33"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.34540328380000002" green="0.73769360780000004" blue="0.90198951959999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="labelForGoal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ia-pn-XxB">
+                                                    <rect key="frame" x="20" y="104" width="97" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wash Hands" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jM8-uV-Nwj">
+                                                    <rect key="frame" x="20" y="20" width="164" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellView" destination="nRO-KP-Qrb" id="IeC-Rs-QAP"/>
+                                            <outlet property="habitDescLabel" destination="sdu-Rz-2T7" id="BbG-xj-ZmJ"/>
+                                            <outlet property="habitGoalLabel" destination="7ia-pn-XxB" id="jhy-DE-GMe"/>
+                                            <outlet property="habitNameLabel" destination="jM8-uV-Nwj" id="FfT-IB-iRh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="R5o-I7-bje"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" id="LXX-Eg-D2y"/>
                     <connections>
+                        <outlet property="addHabitBtn" destination="ix9-hv-a0n" id="Aq0-xS-PIG"/>
+                        <outlet property="tableView" destination="4W1-dI-HkW" id="V2U-6n-zTg"/>
                         <segue destination="7Eu-4E-XEB" kind="presentation" identifier="toAddHabit" id="SaC-Gu-Wdg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTk-Hz-MF7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1107" y="339"/>
+            <point key="canvasLocation" x="1105.7971014492755" y="338.83928571428572"/>
         </scene>
         <!--Add Habit View Controller-->
         <scene sceneID="LoJ-n1-pTi">
