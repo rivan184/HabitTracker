@@ -33,19 +33,46 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4r5-W3-iQG">
+                                <rect key="frame" x="20" y="397" width="374" height="425"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="uj4-Ko-Xel"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="7Xh-7q-eV8"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="qCY-x4-Cjw"/>
                     <connections>
+                        <outlet property="habitList" destination="4r5-W3-iQG" id="wXx-AK-aYy"/>
                         <outlet property="infoImage" destination="ok9-Zg-0xw" id="a2m-FR-SNa"/>
                         <segue destination="QVk-1t-2J6" kind="presentation" identifier="viewInfo" modalPresentationStyle="fullScreen" id="7Zn-J6-hC7"/>
+                        <segue destination="S0V-ud-L6O" kind="show" identifier="showHabitDetail" id="YMX-cV-Xjr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1106" y="-331"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7kt-1p-EMb">
+            <objects>
+                <viewController id="S0V-ud-L6O" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hLd-t3-Uti">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="cp2-9e-69y"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wfJ-cB-PVV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="100-SZ-wwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1954" y="-101"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="SN3-SY-S7c">
