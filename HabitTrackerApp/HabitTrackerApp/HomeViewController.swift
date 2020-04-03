@@ -30,7 +30,6 @@ class HomeViewController: UIViewController {
     @objc func imageTap(){
         //To Present Modally
         self.performSegue(withIdentifier: "viewInfo", sender: infoImage)
-        print("test")
     }
 
 

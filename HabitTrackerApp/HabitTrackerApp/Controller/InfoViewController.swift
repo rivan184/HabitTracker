@@ -29,5 +29,6 @@ class InfoViewController: UIViewController {
 
     @IBAction func exitView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        print("pressed")
     }
 }
