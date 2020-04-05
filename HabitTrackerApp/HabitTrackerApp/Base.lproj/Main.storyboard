@@ -115,9 +115,9 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSC-VD-Yop">
-                                <rect key="frame" x="355" y="65" width="30" height="29"/>
+                                <rect key="frame" x="355" y="66" width="30" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="escape" catalog="system"/>
+                                <state key="normal" backgroundImage="close"/>
                                 <connections>
                                     <action selector="exitView:" destination="wQe-qM-dhG" eventType="touchUpInside" id="2hI-NG-xev"/>
                                 </connections>
@@ -126,6 +126,12 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2Ak-cF-eQc"/>
                     </view>
+                    <connections>
+                        <outlet property="imgMainInfo" destination="Wza-AU-1Ds" id="lNo-3t-DO9"/>
+                        <outlet property="txtCredit" destination="AB7-b8-u8F" id="Sc2-3M-tGS"/>
+                        <outlet property="txtMainContent" destination="dUQ-Ck-CRZ" id="Bty-ig-ygQ"/>
+                        <outlet property="txtTitle" destination="e7Y-Ub-eem" id="58y-GE-3Rq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O4g-QN-BMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="wQe-qM-dhG" userLabel="Exit" sceneMemberID="exit"/>
@@ -186,7 +192,7 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
         </scene>
     </scenes>
     <resources>
-        <image name="escape" catalog="system" width="64" height="60"/>
+        <image name="close" width="512" height="512"/>
         <image name="testImage" width="5163" height="2905"/>
     </resources>
 </document>
