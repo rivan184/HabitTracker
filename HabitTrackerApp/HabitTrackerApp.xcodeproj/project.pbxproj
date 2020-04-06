@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1020184243B2C8C00B6FE29 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1020180243B2C8B00B6FE29 /* CalendarView.swift */; };
+		A1020185243B2C8C00B6FE29 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1020181243B2C8C00B6FE29 /* DateCell.swift */; };
+		A1020186243B2C8C00B6FE29 /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1020182243B2C8C00B6FE29 /* DateCell.xib */; };
+		A1020187243B2C8C00B6FE29 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1020183243B2C8C00B6FE29 /* CalendarView.xib */; };
 		A186130424337343009A5F90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130324337343009A5F90 /* AppDelegate.swift */; };
 		A186130624337343009A5F90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130524337343009A5F90 /* SceneDelegate.swift */; };
 		A186130824337343009A5F90 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130724337343009A5F90 /* HomeViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1020180243B2C8B00B6FE29 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = CalendarView/CalendarView.swift; sourceTree = "<group>"; };
+		A1020181243B2C8C00B6FE29 /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateCell.swift; path = CalendarView/DateCell.swift; sourceTree = "<group>"; };
+		A1020182243B2C8C00B6FE29 /* DateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateCell.xib; path = CalendarView/DateCell.xib; sourceTree = "<group>"; };
+		A1020183243B2C8C00B6FE29 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarView.xib; path = CalendarView/CalendarView.xib; sourceTree = "<group>"; };
 		A186130024337343009A5F90 /* HabitTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A186130324337343009A5F90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A186130524337343009A5F90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +64,10 @@
 		A186130224337343009A5F90 /* HabitTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
+				A1020180243B2C8B00B6FE29 /* CalendarView.swift */,
+				A1020183243B2C8C00B6FE29 /* CalendarView.xib */,
+				A1020181243B2C8C00B6FE29 /* DateCell.swift */,
+				A1020182243B2C8C00B6FE29 /* DateCell.xib */,
 				A186130324337343009A5F90 /* AppDelegate.swift */,
 				A186130524337343009A5F90 /* SceneDelegate.swift */,
 				A186130724337343009A5F90 /* HomeViewController.swift */,
@@ -127,7 +139,9 @@
 			files = (
 				A186131024337344009A5F90 /* LaunchScreen.storyboard in Resources */,
 				A186130D24337344009A5F90 /* Assets.xcassets in Resources */,
+				A1020187243B2C8C00B6FE29 /* CalendarView.xib in Resources */,
 				A186130B24337343009A5F90 /* Main.storyboard in Resources */,
+				A1020186243B2C8C00B6FE29 /* DateCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A186130824337343009A5F90 /* HomeViewController.swift in Sources */,
+				A1020185243B2C8C00B6FE29 /* DateCell.swift in Sources */,
 				A186130424337343009A5F90 /* AppDelegate.swift in Sources */,
+				A1020184243B2C8C00B6FE29 /* CalendarView.swift in Sources */,
 				A186130624337343009A5F90 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
