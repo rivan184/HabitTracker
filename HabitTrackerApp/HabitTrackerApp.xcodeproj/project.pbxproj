@@ -15,6 +15,7 @@
 		A186131024337344009A5F90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A186130E24337344009A5F90 /* LaunchScreen.storyboard */; };
 		F4526B0624363B7F004B0BB2 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4526B0524363B7F004B0BB2 /* AddHabitViewController.swift */; };
 		F4526B0824363C56004B0BB2 /* NewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4526B0724363C56004B0BB2 /* NewHabitViewController.swift */; };
+		F478ECB7243B08F700291C31 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478ECB6243B08F700291C31 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A186131124337344009A5F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4526B0524363B7F004B0BB2 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		F4526B0724363C56004B0BB2 /* NewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewController.swift; sourceTree = "<group>"; };
+		F478ECB6243B08F700291C31 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				A186130C24337344009A5F90 /* Assets.xcassets */,
 				A186130E24337344009A5F90 /* LaunchScreen.storyboard */,
 				A186131124337344009A5F90 /* Info.plist */,
+				F478ECB6243B08F700291C31 /* Data.swift */,
 			);
 			path = HabitTrackerApp;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A186130824337343009A5F90 /* HomeViewController.swift in Sources */,
+				F478ECB7243B08F700291C31 /* Data.swift in Sources */,
 				A186130424337343009A5F90 /* AppDelegate.swift in Sources */,
 				A186130624337343009A5F90 /* SceneDelegate.swift in Sources */,
 				F4526B0624363B7F004B0BB2 /* AddHabitViewController.swift in Sources */,
