@@ -14,14 +14,123 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4r5-W3-iQG">
+                                <rect key="frame" x="20" y="397" width="374" height="425"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="uj4-Ko-Xel"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="7Xh-7q-eV8"/>
+                                </connections>
+                            </tableView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNq-XQ-gw6">
+                                <rect key="frame" x="20" y="53" width="374" height="199"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Toz-JU-Ovk"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="NJD-Uj-Vu9"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5E7-Ks-n0w">
+                                <rect key="frame" x="101" y="260" width="212" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.82745098039999998" green="0.82745098039999998" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="qCY-x4-Cjw"/>
+                    <connections>
+                        <outlet property="habitList" destination="4r5-W3-iQG" id="wXx-AK-aYy"/>
+                        <outlet property="pageImage" destination="5E7-Ks-n0w" id="emw-rh-kT4"/>
+                        <outlet property="scrImage" destination="tNq-XQ-gw6" id="QdP-bO-3G3"/>
+                        <segue destination="QVk-1t-2J6" kind="presentation" identifier="viewInfo" modalPresentationStyle="fullScreen" id="7Zn-J6-hC7"/>
+                        <segue destination="S0V-ud-L6O" kind="show" identifier="showHabitDetail" id="YMX-cV-Xjr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1081" y="-317"/>
+            <point key="canvasLocation" x="1105.7971014492755" y="-331.47321428571428"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7kt-1p-EMb">
+            <objects>
+                <viewController id="S0V-ud-L6O" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hLd-t3-Uti">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="cp2-9e-69y"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wfJ-cB-PVV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="100-SZ-wwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1954" y="-101"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="SN3-SY-S7c">
+            <objects>
+                <viewController title="Info View Controller" id="QVk-1t-2J6" customClass="InfoViewController" customModule="HabitTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uh8-us-kBs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="testImage" translatesAutoresizingMaskIntoConstraints="NO" id="Wza-AU-1Ds">
+                                <rect key="frame" x="29" y="116" width="356" height="228"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dUQ-Ck-CRZ">
+                                <rect key="frame" x="29" y="360" width="356" height="416"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <mutableString key="text">Presiden Joko Widodo (Jokowi) hari ini kembali mengumumkan langkah yang diambil pemerintah untuk menangani dampak yang ditimbulkan dari wabah COVID-19. Salah satunya adalah membebaskan kewajiban pembayaran tarif listrik, alias gratis.
+Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA akan digratiskan. Jumlah pelanggan listrik ini diperkirakan mencapai 24 juta pelanggan.
+
+"Tentang tarif listrik, perlu saya sampaikan untuk pelanggan listrik 450 VA yang jumlahnya sekitar 24 juta pelanggan akan digratiskan," tuturnya dalam konferensi pers melalui virtual, Selasa (30/3/2020).</mutableString>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Symtoms" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e7Y-Ub-eem">
+                                <rect key="frame" x="29" y="52" width="356" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Source : https://finance.detik.com/energi/d-4959835/jokowi-gratiskan-tagihan-listrik-3-bulan" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AB7-b8-u8F">
+                                <rect key="frame" x="29" y="791" width="356" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSC-VD-Yop">
+                                <rect key="frame" x="355" y="66" width="30" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="close"/>
+                                <connections>
+                                    <action selector="exitView:" destination="wQe-qM-dhG" eventType="touchUpInside" id="2hI-NG-xev"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2Ak-cF-eQc"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgMainInfo" destination="Wza-AU-1Ds" id="lNo-3t-DO9"/>
+                        <outlet property="txtCredit" destination="AB7-b8-u8F" id="Sc2-3M-tGS"/>
+                        <outlet property="txtMainContent" destination="dUQ-Ck-CRZ" id="Bty-ig-ygQ"/>
+                        <outlet property="txtTitle" destination="e7Y-Ub-eem" id="58y-GE-3Rq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O4g-QN-BMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="wQe-qM-dhG" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1966.6666666666667" y="-809.59821428571422"/>
         </scene>
         <!--Add-->
         <scene sceneID="9A8-7g-66p">
@@ -346,4 +455,8 @@
             <point key="canvasLocation" x="1063.768115942029" y="1020.5357142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="512" height="512"/>
+        <image name="testImage" width="5163" height="2905"/>
+    </resources>
 </document>
