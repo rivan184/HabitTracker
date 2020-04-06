@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3PY-DI-Qm8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S0V-ud-L6O">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -59,6 +59,13 @@
                     <view key="view" contentMode="scaleToFill" id="hLd-t3-Uti">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d2m-i3-0RD" customClass="CalendarView" customModule="HabitTrackerApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="45" width="414" height="326"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cp2-9e-69y"/>
                     </view>
@@ -66,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="100-SZ-wwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="-101"/>
+            <point key="canvasLocation" x="2587" y="-114"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="SN3-SY-S7c">
@@ -84,10 +91,10 @@
                                 <rect key="frame" x="29" y="360" width="356" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <mutableString key="text">Presiden Joko Widodo (Jokowi) hari ini kembali mengumumkan langkah yang diambil pemerintah untuk menangani dampak yang ditimbulkan dari wabah COVID-19. Salah satunya adalah membebaskan kewajiban pembayaran tarif listrik, alias gratis.
+                                <string key="text">Presiden Joko Widodo (Jokowi) hari ini kembali mengumumkan langkah yang diambil pemerintah untuk menangani dampak yang ditimbulkan dari wabah COVID-19. Salah satunya adalah membebaskan kewajiban pembayaran tarif listrik, alias gratis.
 Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA akan digratiskan. Jumlah pelanggan listrik ini diperkirakan mencapai 24 juta pelanggan.
 
-"Tentang tarif listrik, perlu saya sampaikan untuk pelanggan listrik 450 VA yang jumlahnya sekitar 24 juta pelanggan akan digratiskan," tuturnya dalam konferensi pers melalui virtual, Selasa (30/3/2020).</mutableString>
+"Tentang tarif listrik, perlu saya sampaikan untuk pelanggan listrik 450 VA yang jumlahnya sekitar 24 juta pelanggan akan digratiskan," tuturnya dalam konferensi pers melalui virtual, Selasa (30/3/2020).</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -394,7 +401,7 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwm-z7-Vov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2302.898550724638" y="206.91964285714286"/>
+            <point key="canvasLocation" x="2230" y="600"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uLb-F6-ijM">
@@ -431,28 +438,6 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvW-Z6-DHU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="903"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="kAS-Z8-fql">
-            <objects>
-                <viewController id="3PY-DI-Qm8" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cbN-G9-Fdz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d2m-i3-0RD" customClass="CalendarView" customModule="HabitTrackerApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="109" width="414" height="326"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="BXT-Cd-jPF"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZsY-7G-YET" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1063.768115942029" y="1020.5357142857142"/>
         </scene>
     </scenes>
     <resources>

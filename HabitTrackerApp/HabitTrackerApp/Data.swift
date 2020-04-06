@@ -26,6 +26,7 @@ class Habit
     }
 }
 
+/*
 class Data
 {
     let saveDataKey = "habitData"
@@ -49,3 +50,4 @@ class Data
     }
     
 }
+*/

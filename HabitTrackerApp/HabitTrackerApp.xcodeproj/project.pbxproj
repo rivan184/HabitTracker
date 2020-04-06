@@ -7,36 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		459678BC24370D3500BE6030 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459678BB24370D3500BE6030 /* CustomTableViewCell.swift */; };
 		473D151224378294002AAE71 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D151124378294002AAE71 /* InfoViewController.swift */; };
 		473D151624378578002AAE71 /* HabitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D151424378578002AAE71 /* HabitTableViewCell.swift */; };
-		459678BC24370D3500BE6030 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459678BB24370D3500BE6030 /* CustomTableViewCell.swift */; };
-		A1020184243B2C8C00B6FE29 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1020180243B2C8B00B6FE29 /* CalendarView.swift */; };
-		A1020185243B2C8C00B6FE29 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1020181243B2C8C00B6FE29 /* DateCell.swift */; };
 		473D151724378578002AAE71 /* HabitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 473D151524378578002AAE71 /* HabitTableViewCell.xib */; };
 		473D151924378602002AAE71 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D151824378602002AAE71 /* DummyData.swift */; };
-		A1020186243B2C8C00B6FE29 /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1020182243B2C8C00B6FE29 /* DateCell.xib */; };
-		A1020187243B2C8C00B6FE29 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1020183243B2C8C00B6FE29 /* CalendarView.xib */; };
 		A186130424337343009A5F90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130324337343009A5F90 /* AppDelegate.swift */; };
 		A186130624337343009A5F90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130524337343009A5F90 /* SceneDelegate.swift */; };
 		A186130824337343009A5F90 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130724337343009A5F90 /* HomeViewController.swift */; };
 		A186130B24337343009A5F90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A186130924337343009A5F90 /* Main.storyboard */; };
 		A186130D24337344009A5F90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A186130C24337344009A5F90 /* Assets.xcassets */; };
 		A186131024337344009A5F90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A186130E24337344009A5F90 /* LaunchScreen.storyboard */; };
+		A1DACB14243B2F5900A45B2E /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DACB10243B2F5900A45B2E /* DateCell.swift */; };
+		A1DACB15243B2F5900A45B2E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DACB11243B2F5900A45B2E /* CalendarView.swift */; };
+		A1DACB16243B2F5900A45B2E /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DACB12243B2F5900A45B2E /* DateCell.xib */; };
+		A1DACB17243B2F5900A45B2E /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DACB13243B2F5900A45B2E /* CalendarView.xib */; };
 		F4526B0624363B7F004B0BB2 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4526B0524363B7F004B0BB2 /* AddHabitViewController.swift */; };
 		F4526B0824363C56004B0BB2 /* NewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4526B0724363C56004B0BB2 /* NewHabitViewController.swift */; };
 		F478ECB7243B08F700291C31 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478ECB6243B08F700291C31 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		459678BB24370D3500BE6030 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		473D151124378294002AAE71 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		473D151424378578002AAE71 /* HabitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTableViewCell.swift; sourceTree = "<group>"; };
-		459678BB24370D3500BE6030 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		A1020180243B2C8B00B6FE29 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = CalendarView/CalendarView.swift; sourceTree = "<group>"; };
-		A1020181243B2C8C00B6FE29 /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateCell.swift; path = CalendarView/DateCell.swift; sourceTree = "<group>"; };
 		473D151524378578002AAE71 /* HabitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HabitTableViewCell.xib; sourceTree = "<group>"; };
 		473D151824378602002AAE71 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
-		A1020182243B2C8C00B6FE29 /* DateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateCell.xib; path = CalendarView/DateCell.xib; sourceTree = "<group>"; };
-		A1020183243B2C8C00B6FE29 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarView.xib; path = CalendarView/CalendarView.xib; sourceTree = "<group>"; };
 		A186130024337343009A5F90 /* HabitTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A186130324337343009A5F90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A186130524337343009A5F90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +41,10 @@
 		A186130C24337344009A5F90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A186130F24337344009A5F90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A186131124337344009A5F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1DACB10243B2F5900A45B2E /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateCell.swift; path = HabitTrackerApp/DateCell.swift; sourceTree = SOURCE_ROOT; };
+		A1DACB11243B2F5900A45B2E /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = HabitTrackerApp/CalendarView.swift; sourceTree = SOURCE_ROOT; };
+		A1DACB12243B2F5900A45B2E /* DateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateCell.xib; path = HabitTrackerApp/DateCell.xib; sourceTree = SOURCE_ROOT; };
+		A1DACB13243B2F5900A45B2E /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarView.xib; path = HabitTrackerApp/CalendarView.xib; sourceTree = SOURCE_ROOT; };
 		F4526B0524363B7F004B0BB2 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		F4526B0724363C56004B0BB2 /* NewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewController.swift; sourceTree = "<group>"; };
 		F478ECB6243B08F700291C31 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -97,12 +97,9 @@
 		A186130224337343009A5F90 /* HabitTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
+				A1DACB0F243B2F2500A45B2E /* CalendarView */,
 				473D151324378563002AAE71 /* HabitCell */,
-				A1020180243B2C8B00B6FE29 /* CalendarView.swift */,
-				A1020183243B2C8C00B6FE29 /* CalendarView.xib */,
-				A1020181243B2C8C00B6FE29 /* DateCell.swift */,
 				473D151024378266002AAE71 /* Controller */,
-				A1020182243B2C8C00B6FE29 /* DateCell.xib */,
 				A186130324337343009A5F90 /* AppDelegate.swift */,
 				459678BB24370D3500BE6030 /* CustomTableViewCell.swift */,
 				A186130524337343009A5F90 /* SceneDelegate.swift */,
@@ -117,6 +114,17 @@
 				F478ECB6243B08F700291C31 /* Data.swift */,
 			);
 			path = HabitTrackerApp;
+			sourceTree = "<group>";
+		};
+		A1DACB0F243B2F2500A45B2E /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				A1DACB11243B2F5900A45B2E /* CalendarView.swift */,
+				A1DACB13243B2F5900A45B2E /* CalendarView.xib */,
+				A1DACB10243B2F5900A45B2E /* DateCell.swift */,
+				A1DACB12243B2F5900A45B2E /* DateCell.xib */,
+			);
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,12 +185,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1DACB17243B2F5900A45B2E /* CalendarView.xib in Resources */,
 				A186131024337344009A5F90 /* LaunchScreen.storyboard in Resources */,
 				A186130D24337344009A5F90 /* Assets.xcassets in Resources */,
 				473D151724378578002AAE71 /* HabitTableViewCell.xib in Resources */,
-				A1020187243B2C8C00B6FE29 /* CalendarView.xib in Resources */,
 				A186130B24337343009A5F90 /* Main.storyboard in Resources */,
-				A1020186243B2C8C00B6FE29 /* DateCell.xib in Resources */,
+				A1DACB16243B2F5900A45B2E /* DateCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,13 +202,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				473D151924378602002AAE71 /* DummyData.swift in Sources */,
+				A1DACB14243B2F5900A45B2E /* DateCell.swift in Sources */,
+				A1DACB15243B2F5900A45B2E /* CalendarView.swift in Sources */,
 				459678BC24370D3500BE6030 /* CustomTableViewCell.swift in Sources */,
 				A186130824337343009A5F90 /* HomeViewController.swift in Sources */,
 				F478ECB7243B08F700291C31 /* Data.swift in Sources */,
 				A186130424337343009A5F90 /* AppDelegate.swift in Sources */,
 				473D151624378578002AAE71 /* HabitTableViewCell.swift in Sources */,
 				473D151224378294002AAE71 /* InfoViewController.swift in Sources */,
-				A1020184243B2C8C00B6FE29 /* CalendarView.swift in Sources */,
 				A186130624337343009A5F90 /* SceneDelegate.swift in Sources */,
 				F4526B0624363B7F004B0BB2 /* AddHabitViewController.swift in Sources */,
 				F4526B0824363C56004B0BB2 /* NewHabitViewController.swift in Sources */,
