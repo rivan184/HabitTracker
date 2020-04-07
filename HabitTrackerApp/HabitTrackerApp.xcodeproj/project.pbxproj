@@ -11,6 +11,7 @@
 		473D151624378578002AAE71 /* HabitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D151424378578002AAE71 /* HabitTableViewCell.swift */; };
 		473D151724378578002AAE71 /* HabitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 473D151524378578002AAE71 /* HabitTableViewCell.xib */; };
 		473D151924378602002AAE71 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D151824378602002AAE71 /* DummyData.swift */; };
+		9957CE6A243C19A600FA9C03 /* InfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9957CE69243C19A600FA9C03 /* InfoData.swift */; };
 		A186130424337343009A5F90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130324337343009A5F90 /* AppDelegate.swift */; };
 		A186130624337343009A5F90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130524337343009A5F90 /* SceneDelegate.swift */; };
 		A186130824337343009A5F90 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130724337343009A5F90 /* HomeViewController.swift */; };
@@ -24,6 +25,7 @@
 		473D151424378578002AAE71 /* HabitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTableViewCell.swift; sourceTree = "<group>"; };
 		473D151524378578002AAE71 /* HabitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HabitTableViewCell.xib; sourceTree = "<group>"; };
 		473D151824378602002AAE71 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		9957CE69243C19A600FA9C03 /* InfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoData.swift; sourceTree = "<group>"; };
 		A186130024337343009A5F90 /* HabitTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A186130324337343009A5F90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A186130524337343009A5F90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 			path = HabitCell;
 			sourceTree = "<group>";
 		};
+		9957CE68243C198C00FA9C03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9957CE69243C19A600FA9C03 /* InfoData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A18612F724337343009A5F90 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 		A186130224337343009A5F90 /* HabitTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
+				9957CE68243C198C00FA9C03 /* Model */,
 				473D151324378563002AAE71 /* HabitCell */,
 				473D151024378266002AAE71 /* Controller */,
 				A186130324337343009A5F90 /* AppDelegate.swift */,
@@ -169,6 +180,7 @@
 			files = (
 				473D151924378602002AAE71 /* DummyData.swift in Sources */,
 				A186130824337343009A5F90 /* HomeViewController.swift in Sources */,
+				9957CE6A243C19A600FA9C03 /* InfoData.swift in Sources */,
 				A186130424337343009A5F90 /* AppDelegate.swift in Sources */,
 				473D151624378578002AAE71 /* HabitTableViewCell.swift in Sources */,
 				473D151224378294002AAE71 /* InfoViewController.swift in Sources */,

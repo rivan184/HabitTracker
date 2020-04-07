@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var pageImage: UIPageControl!
     
+    var arrInfoData = [InfoData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,16 +26,18 @@ class HomeViewController: UIViewController {
         setupData()
         setupLongPressGesture()
         
+        
+        //Image Carousel
         scrImage.delegate = self;
         
-        let images: [UIImage] = [UIImage(named: "testImage")!,
-        UIImage(named: "testImage")!,
-        UIImage(named: "testImage")!,
-        UIImage(named: "testImage")!,
-        UIImage(named: "testImage")!,
-        UIImage(named: "testImage")!]
+        //Set Info Data
+        arrInfoData = [
+            InfoData(title: "What is Covid-19?", description: "Description about Covid-19 Description about Covid-19 Description about Covid-19 Description about Covid-19 Description about Covid-19", image: "testImage", source: "https://finance.detik.com/energi/d-4959835/jokowi-gratiskan-tagihan-listrik-3-bulan"),
+            InfoData(title: "Info Covid-19", description: "Description about Info Description about Info Description about Info Description about Info", image: "testImage", source: "https://finance.detik.com/energi/d-4959835/jokowi-gratiskan-tagihan-listrik-3-bulan"),
+            InfoData(title: "Symtoms of Covid-19", description: "Description about symtoms Description about symtoms Description about symtoms Description about symtoms Description about symtoms Description about symtoms", image: "testImage", source: "https://finance.detik.com/energi/d-4959835/jokowi-gratiskan-tagihan-listrik-3-bulan"),
+        ]
         
-        configure(with: images)
+        configure(with: arrInfoData)
         
     }
     
@@ -65,47 +69,51 @@ class HomeViewController: UIViewController {
         habitModel.append(DummyData(name: "Habit2", goal: 3, color: .systemPink, tapProgress: 3))
         habitModel.append(DummyData(name: "Habit3", goal: 4, color: .yellow, tapProgress: 0))
     }
-    
+
     //Image Carousel
-    func configure(with images: [UIImage]) {
-        
-        pageImage.pageIndicatorTintColor = UIColor(named: "black")
-        pageImage.currentPageIndicatorTintColor = UIColor(named: "black")
-       
-        
+    func configure(with data: [InfoData]) {
         // Get the scrollView width and height
         let scrollViewWidth: CGFloat = scrImage.frame.width
         let scrollViewHeight: CGFloat = scrImage.frame.height
         
         // Loop through all of the images and add them all to the scrollView
-        for (index, image) in images.enumerated() {
+        for (index, item) in data.enumerated() {
             let imageView = UIImageView(frame: CGRect(x: scrollViewWidth * CGFloat(index),
                                                       y: 0,
                                                       width: scrollViewWidth,
                                                       height: scrollViewHeight))
-            imageView.image = image
+            imageView.image = UIImage(named: item.image)
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.layer.cornerRadius = 10
             
-            let labelViewTitle = UILabel(frame: CGRect(x: scrollViewWidth * CGFloat(index),
+            //Tap Image interaction
+            imageView.isUserInteractionEnabled = true
+            imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageTap)))
+
+            
+            let labelViewTitle = UILabel(frame: CGRect(x: scrollViewWidth * CGFloat(index) + 10,
             y: 0,
             width: scrollViewWidth,
             height: scrollViewHeight))
             
-            labelViewTitle.text = "Title of Article \(index)"
+            //Label for title (overlay)
+            labelViewTitle.text = item.title
             labelViewTitle.textColor = UIColor.white
             labelViewTitle.font = UIFont.preferredFont(forTextStyle: .title1)
             //labelViewTitle.font = UIFont..
             
-            let labelViewContent = UILabel(frame: CGRect(x: scrollViewWidth * CGFloat(index),
-            y: 30,
+            //Label for description(overlay)
+            let labelViewContent = UILabel(frame: CGRect(x: scrollViewWidth * CGFloat(index) + 10,
+            y: 35,
             width: scrollViewWidth,
             height: scrollViewHeight))
             
-            labelViewContent.text = "This is Content of Article"
+            labelViewContent.text = item.description
             labelViewContent.textColor = UIColor.white
             labelViewContent.font = UIFont.preferredFont(forTextStyle: .body)
+            labelViewContent.lineBreakMode = .byWordWrapping
+            labelViewContent.numberOfLines = 2
 
             
             scrImage.addSubview(imageView)
@@ -114,12 +122,19 @@ class HomeViewController: UIViewController {
         }
         
         // Set the scrollView contentSize
-        scrImage.contentSize = CGSize(width: scrImage.frame.width * CGFloat(images.count),
+        scrImage.contentSize = CGSize(width: scrImage.frame.width * CGFloat(data.count),
                                         height: scrImage.frame.height)
         
         // Ensure that the pageControl knows the number of pages
-        pageImage.numberOfPages = images.count
+        pageImage.numberOfPages = data.count
         
+    }
+    
+    //Send Info Data
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let infoView = segue.destination as? InfoViewController{
+            infoView.initData(infoData: arrInfoData[pageImage.currentPage])
+        }
     }
     
 
@@ -156,9 +171,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 // MARK: UIScrollViewDelegate
+// For page indicator
 extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrImage: UIScrollView){
-        print("scroll run")
         let pageWidth:CGFloat = scrImage.frame.width
         let currentPage:CGFloat = floor((scrImage.contentOffset.x-pageWidth/2)/pageWidth)+1
         pageImage.currentPage = Int(currentPage)
