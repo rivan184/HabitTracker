@@ -151,16 +151,28 @@ class HomeViewController: UIViewController {
     
     //Send Info Data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var habitData:Habit? = nil
-        if sender != nil
+        
+        if segue.identifier == "showHabitDetail"
         {
-            habitData = sender as? Habit
+            var habitData:Habit? = nil
+            if sender != nil
+            {
+                habitData = sender as? Habit
+            }
+            
+            
+            let habitDataVC = segue.destination as? HabitDataVC
+            let rootVC = tabBarController as! TabBarViewController
+            habitDataVC?.fillPredefinedData(defaultData: habitData,rootVC:rootVC)
+        }
+        else
+        {
+            if let infoView = segue.destination as? InfoViewController{
+                infoView.initData(infoData: arrInfoData[pageImage.currentPage])
+            }
+
         }
         
-        
-        let habitDataVC = segue.destination as? HabitDataVC
-        let rootVC = tabBarController as! TabBarViewController
-        habitDataVC?.fillPredefinedData(defaultData: habitData,rootVC:rootVC)
         
     }
     

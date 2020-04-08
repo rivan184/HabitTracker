@@ -139,6 +139,9 @@ class DataManager
     
     init()
     {
+//        UserDefaults.standard.removeObject(forKey: saveDataKey) // uncomment this line and run once, to delete all save data
+        
+// uncomment 2 lines below to use template data
 //        TestData()
 //        save()
         load()
@@ -152,16 +155,11 @@ class DataManager
         print(habitArr.count)
         nextID += 1
         
-        print("addNewHabit \(habitArr.last)")
     }
     
     func updateHabit(habit:Habit)
     {
-        print(habit.description())
         
-        print("\(habitArr.count) \(habitArr[1].dictionary())")
-        
-        print("before \(saveData[habit.id])")
         var habitIndex:Int = 0
         for i in habitArr
         {
@@ -175,7 +173,6 @@ class DataManager
         habitArr[habitIndex] = habit
         saveData[habit.id] = habit.dictionary()
         
-        print("after \(saveData[habit.id])")
     }
     
     func save()
@@ -186,11 +183,9 @@ class DataManager
             var cHabit = habitArr[i]
             
             saveData[cHabit.id] = cHabit.dictionary()
-            print("UpdateSave \(cHabit.id) \(cHabit.description())")
             habitList.append(cHabit.id)
         }
                  
-        print("saveData \(saveData)")
         UserDefaults.standard.set(saveData, forKey: saveDataKey)
         UserDefaults.standard.set(habitList, forKey: habitListKey)
         UserDefaults.standard.synchronize()
@@ -202,25 +197,22 @@ class DataManager
         {
             saveData =  data
         }
-        habitList.removeAll()
-        if let dataList = UserDefaults.standard.array(forKey: habitListKey)
+        if(saveData.count > 0)
         {
-            habitList = dataList as! [String]
+            habitList.removeAll()
+            if let dataList = UserDefaults.standard.array(forKey: habitListKey)
+            {
+                habitList = dataList as! [String]
+            }
+            habitArr.removeAll()
+            for habit in habitList
+            {
+                let habitData = saveData[habit]
+                print(habitData!)
+                habitArr.append(Habit(dict: habitData as! [String : Any]))
+            }
         }
-        print(saveData.count)
-        print(saveData)
-        print(habitList)
         
-        print("load")
-        habitArr.removeAll()
-        print(habitArr)
-        for habit in habitList
-        {
-            let habitData = saveData[habit]
-            print(habitData!)
-            habitArr.append(Habit(dict: habitData as! [String : Any]))
-        }
-        print(habitArr[0].description())
     }
     
     
