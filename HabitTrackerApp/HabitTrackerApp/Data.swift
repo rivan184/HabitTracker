@@ -36,7 +36,7 @@ let predefinedColorValue:[PreDefinedColor:UIColor]=[
 
 let predefinedHabits = [
     PreDefinedHabit(habitName: "Wash Hands",
-                    habitDesc: "Washing hand desc",
+                    habitDesc: "Washing hands desc",
                     habitGoal: 10,
                     habitColor: PreDefinedColor.BLUE),
     
