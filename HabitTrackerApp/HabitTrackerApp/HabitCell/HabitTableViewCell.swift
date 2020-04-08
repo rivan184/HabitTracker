@@ -19,6 +19,9 @@ class HabitTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
+        // disable cell highlight
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,20 +32,26 @@ class HabitTableViewCell: UITableViewCell {
     
     // MARK: Model, Dummy Data
     // Delete if not used
-    var model: DummyData? {
-        didSet{
-            cellConfig()
+    var model: Habit?
+    
+    var date:String?
+    {
+        didSet
+        {
+            cellConfig(date: date ?? "")
         }
     }
     
-    func cellConfig(){
+    func cellConfig(date:String){
         guard let habit = model else { return }
         habitTitle.text = habit.name
-        habitGoal.text = String(habit.tapProgress)
+        let progress:Int = habit.currentGoalFor(date: date)
+        habitGoal.text = String(progress)
         
         progressView.layer.cornerRadius = 10
-        progressView.layer.backgroundColor = habit.color.cgColor
-        widthConstraint.constant = CGFloat(Float(habit.tapProgress)/Float(habit.goal) * Float(self.maxWidth))
+        let color:PreDefinedColor = PreDefinedColor(rawValue: habit.color)!
+        progressView.layer.backgroundColor = predefinedColorValue[color]?.cgColor
+        widthConstraint.constant = CGFloat(Float(progress)/Float(habit.goal) * Float(self.maxWidth))
         
         progressView.updateConstraints()
     }

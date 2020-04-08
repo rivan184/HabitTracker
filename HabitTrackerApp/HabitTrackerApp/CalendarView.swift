@@ -12,6 +12,7 @@ import Foundation
 protocol CalendarViewDelegate
 {
     func dateSelected(selectedDate:Date)
+    func markedDate()->[String]
 }
 
 @IBDesignable class CalendarView: UIView {
@@ -37,13 +38,23 @@ protocol CalendarViewDelegate
     var startDateForCalendar = Date()
     var activeMonthInCalendar:Int = 0
     var totalWeeksInMonth:Int = 0
-    var dateFrame:CGSize = CGSize(width: 30, height: 30)
-    
+    var dateFrame:CGSize = CGSize(width: 40, height: 40)
+    var currentDate:Date!
+    var currentDateString:String!
+    var markedDates:[String]?
+    var delegate:CalendarViewDelegate?
+    {
+        didSet
+        {
+            markedDates = delegate?.markedDate()
+//            print("marked \(markedDates)")
+        }
+    }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         let currentCalendar = Calendar.current
         calendar = Calendar(identifier:.gregorian)
         calendar.locale = currentCalendar.locale
@@ -52,6 +63,11 @@ protocol CalendarViewDelegate
         let cDate = Date()
         let timezoneIntervalInSeconds:TimeInterval = TimeInterval(Calendar.current.timeZone.secondsFromGMT(for: cDate))
         checkDate = Date(timeIntervalSinceNow:timezoneIntervalInSeconds)
+        currentDate = checkDate
+        let day = calendar.component(.day, from: currentDate!)
+        let month = calendar.component(.month, from: currentDate!)
+        let year = calendar.component(.year, from: currentDate!)
+        currentDateString = "\(day)-\(month)-\(year)"
         
 
         let shortweekdaySymbol:[String] = calendar.veryShortWeekdaySymbols
@@ -65,6 +81,7 @@ protocol CalendarViewDelegate
                 
 
         addSwipeGesture()
+        
     }
     
     func addSwipeGesture()
@@ -140,22 +157,11 @@ protocol CalendarViewDelegate
         dateView.delegate = self
         dateView.dataSource = self
         
-        
-        
-        
-        // use bounds not frame or it'll be offset
-//        view.frame = bounds
-        // Make the view stretch with containing view
-//        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            //[UIView.AutoresizingMask.FlexibleWidth, UIView.AutoresizingMask.
-        // Adding custom subview on top of our view (over any custom
-//        addSubview(view)
     }
     func loadViewFromNib(){
         let bundle = Bundle(for: type(of: self))
         let nib = bundle.loadNibNamed("CalendarView", owner: self, options: nil)
-//        let nib = UINib(nibName: "CalendarView", bundle: nil)
-//        nib.instantiate(withOwner:self, options: nil),
+
         guard let customView = nib?[0] else { return }
         let customUIView = customView as! UIView
         view.frame = customUIView.bounds
@@ -209,23 +215,27 @@ extension CalendarView:UICollectionViewDelegate, UICollectionViewDataSource,UICo
         return totalWeeksInMonth
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         
-//        cell.Text.text = "\((indexPath.section * collectionView.numberOfItems(inSection: indexPath.section)) + indexPath.row+1)"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         let dateIndex = indexPath.section * collectionView.numberOfItems(inSection: indexPath.section) + indexPath.row
         
         var dc = DateComponents()
         dc.day = dateIndex
         
         let date = calendar.date(byAdding: dc, to: startDateForCalendar)
-//        let day = calendar.component(.day, from: date!)
-//        let month = calendar.component(.month, from: date!)
-//        print("\(month!) \(currentMonth) ")
-//        cell.isCurrentMonth = month == activeMonthInCalendar
+        let day = calendar.component(.day, from: date!)
+        let month = calendar.component(.month, from: date!)
+        let year = calendar.component(.year, from: date!)
+        let dateString = "\(day)-\(month)-\(year)"
+
         cell.setup(cellDate:date!, currentActiveMonth: activeMonthInCalendar,calendar: calendar)
-//        cell.dateLabel.text = "\(day)"
+        
+        if markedDates?.contains(dateString) ?? false
+        {
+            cell.marked(dateString: dateString)
+        }
+        cell.today(dateString: currentDateString)
         return cell
     }
     
@@ -234,22 +244,19 @@ extension CalendarView:UICollectionViewDelegate, UICollectionViewDataSource,UICo
     {
         return dateFrame
     }
-    
+        
     
     // MARK: Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("didSelect")
+//        print("didSelect")
         let cell = collectionView.cellForItem(at: indexPath) as! DateCell
-//        cell.sele
-        print(cell.dateLabel.text)
+        delegate?.dateSelected(selectedDate: cell.cellDate)
+//        cell.selected()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print("didDeSelect")
-        let cell = collectionView.cellForItem(at: indexPath) as! DateCell
+//        print("didDeSelect")
+//        let cell = collectionView.cellForItem(at: indexPath) as! DateCell
 //        cell.deselect()
-        print(cell.dateLabel.text)
     }
-    
-
 }

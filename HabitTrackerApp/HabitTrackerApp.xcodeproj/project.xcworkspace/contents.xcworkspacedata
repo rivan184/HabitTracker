@@ -2,18 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../HabitTrackerApp/CalendarView/CalendarView.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../HabitTrackerApp/CalendarView/CalendarView.xib">
-   </FileRef>
-   <FileRef
-      location = "group:../HabitTrackerApp/CalendarView/DateCell.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../HabitTrackerApp/CalendarView/DateCell.xib">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

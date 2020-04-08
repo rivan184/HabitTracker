@@ -9,6 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
     @IBOutlet weak var infoImage: UIImageView!
     @IBOutlet weak var habitList: UITableView!
     
@@ -16,14 +17,18 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var pageImage: UIPageControl!
     
+    var dataManager:DataManager?
+    var selectedDate:String = ""
+    var cCalendar = Calendar.current
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //imageViewSetting()
         setupCell()
-        setupData()
+//        setupData()
         setupLongPressGesture()
-        
+        print("Home ViewController")
         scrImage.delegate = self;
         
         let images: [UIImage] = [UIImage(named: "testImage")!,
@@ -33,8 +38,30 @@ class HomeViewController: UIViewController {
         UIImage(named: "testImage")!,
         UIImage(named: "testImage")!]
         
+        let cDate = Date()
+        updateSelectedDate(date: cDate)
+        
         configure(with: images)
         
+    }
+    
+    func updateSelectedDate(date:Date)
+    {
+        let day = cCalendar.component(.day, from: date)
+        let month = cCalendar.component(.month, from: date)
+        let year = cCalendar.component(.year, from: date)
+        selectedDate = "\(day)-\(month)-\(year)"
+    }
+ 
+    func updateView()
+    {
+        habitList.reloadData()
+    }
+    
+    func prepareData(dataManager:DataManager)
+    {
+        self.dataManager = dataManager
+        print("HomeViewControllerPrepare")
     }
     
     //MARK: Image Function
@@ -56,17 +83,7 @@ class HomeViewController: UIViewController {
         habitList.register(UINib(nibName: "HabitTableViewCell", bundle: nil), forCellReuseIdentifier: "habitCell")
     }
     
-    // MARK: Appending Dummy Data
-    // (Delete if not used)
-    var habitModel = [DummyData]()
-    
-    func setupData(){
-        habitModel.append(DummyData(name: "Habit1", goal: 5, color: .cyan, tapProgress: 2))
-        habitModel.append(DummyData(name: "Habit2", goal: 3, color: .systemPink, tapProgress: 3))
-        habitModel.append(DummyData(name: "Habit3", goal: 4, color: .yellow, tapProgress: 0))
-    }
-    
-    //Image Carousel
+    // MARK: Image Carousel
     func configure(with images: [UIImage]) {
         
         pageImage.pageIndicatorTintColor = UIColor(named: "black")
@@ -122,18 +139,34 @@ class HomeViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var habitData:Habit? = nil
+        if sender != nil
+        {
+            habitData = sender as? Habit
+        }
+        
+        
+        let habitDataVC = segue.destination as? HabitDataVC
+        let rootVC = tabBarController as! TabBarViewController
+        habitDataVC?.fillPredefinedData(defaultData: habitData,rootVC:rootVC)
+        
+    }
+    
 
 }
 
 //MARK: TableView Delegate & Data Source
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return habitModel.count
+        return dataManager?.habitArr.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! HabitTableViewCell
-        cell.model = habitModel[indexPath.row]
+//        cell.model = habitModel[indexPath.row]
+        cell.model = dataManager?.habitArr[indexPath.row]
+        cell.date = selectedDate
         return cell
     }
     
@@ -143,12 +176,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     //Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Tapped index: ", indexPath.row)
-        let ratio = Float(habitModel[indexPath.row].tapProgress) / Float(habitModel[indexPath.row].goal)
+//        print("Tapped index: ", indexPath.row)
+        let selectedHabit = dataManager?.habitArr[indexPath.row]
+        let progress = selectedHabit?.currentGoalFor(date: selectedDate)
+        let ratio = Float(progress!) / Float(selectedHabit!.goal)
         //If a habit hasnt's been completed, otherwise do nothing
         if ratio < 1 {
             //Increment habit progress
-            habitModel[indexPath.row].tapProgress += 1
+            selectedHabit?.update(date: selectedDate, value: progress!+1)
+//            habitModel[indexPath.row].tapProgress += 1
         }
         //Updating tableView
         tableView.reloadData()
@@ -178,10 +214,13 @@ extension HomeViewController {
     @objc func handleLongPres(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
         if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
             let touchPoint = longPressGestureRecognizer.location(in: self.habitList)
-            if let indexPath = habitList.indexPathForRow(at: touchPoint){
+            if let indexPath = habitList.indexPathForRow(at: touchPoint)
+            {
                 //Access the Habit detail view based on indexPath
                 //Segue to habitDetailView
-                self.performSegue(withIdentifier: "showHabitDetail", sender: nil)
+                let habitData = dataManager?.habitArr[indexPath.row]
+                print(habitData?.description())
+                self.performSegue(withIdentifier: "showHabitDetail", sender: habitData)
                 
             }
         }
