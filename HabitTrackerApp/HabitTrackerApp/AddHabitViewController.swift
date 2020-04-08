@@ -32,6 +32,7 @@ class AddHabitViewController: UIViewController {
     @IBOutlet weak var colorPicker3: UIButton!
     @IBOutlet weak var colorPicker4: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var contentView: UIView!
     
     @IBAction func closeModal(_ sender: Any) {
         dismiss(animated: true)
