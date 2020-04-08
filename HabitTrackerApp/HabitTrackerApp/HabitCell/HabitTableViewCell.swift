@@ -13,6 +13,7 @@ class HabitTableViewCell: UITableViewCell {
     @IBOutlet weak var habitTitle: UILabel!
     @IBOutlet weak var habitGoal: UILabel!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backgroundProgress: UIView!
     
     var maxWidth = 358
     
@@ -48,6 +49,7 @@ class HabitTableViewCell: UITableViewCell {
         let progress:Int = habit.currentGoalFor(date: date)
         habitGoal.text = String(progress)
         
+        backgroundProgress.layer.cornerRadius = 10
         progressView.layer.cornerRadius = 10
         let color:PreDefinedColor = PreDefinedColor(rawValue: habit.color)!
         progressView.layer.backgroundColor = predefinedColorValue[color]?.cgColor

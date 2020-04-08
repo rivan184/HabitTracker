@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +16,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="384" height="75"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H5d-Go-E7L">
+                        <rect key="frame" x="9" y="9" width="358" height="57"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="358" id="Zd5-mT-Pw2"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAJ-en-wud">
                         <rect key="frame" x="9" y="9" width="358" height="57"/>
                         <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,7 +46,10 @@
                 <constraints>
                     <constraint firstItem="xjy-bB-ZJE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="A7s-re-sRb"/>
                     <constraint firstAttribute="trailing" secondItem="qAN-Ng-YL8" secondAttribute="trailing" constant="40" id="Acd-U1-Kct"/>
+                    <constraint firstItem="H5d-Go-E7L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="CqJ-ig-h3k"/>
+                    <constraint firstItem="H5d-Go-E7L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="HMp-Ns-xwY"/>
                     <constraint firstAttribute="bottom" secondItem="vAJ-en-wud" secondAttribute="bottom" constant="9" id="Rtg-qr-aPz"/>
+                    <constraint firstAttribute="bottom" secondItem="H5d-Go-E7L" secondAttribute="bottom" constant="9" id="cSg-mv-HNg"/>
                     <constraint firstItem="vAJ-en-wud" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="dvs-3O-kTT"/>
                     <constraint firstAttribute="bottom" secondItem="xjy-bB-ZJE" secondAttribute="bottom" constant="24" id="env-C6-k9z"/>
                     <constraint firstItem="xjy-bB-ZJE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="h2a-jK-FgR"/>
@@ -49,6 +59,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="backgroundProgress" destination="H5d-Go-E7L" id="UI0-qz-tW4"/>
                 <outlet property="habitGoal" destination="qAN-Ng-YL8" id="2m3-iG-wrq"/>
                 <outlet property="habitTitle" destination="xjy-bB-ZJE" id="LRt-1q-28V"/>
                 <outlet property="progressView" destination="vAJ-en-wud" id="G3r-VM-TTq"/>
