@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pageImage: UIPageControl!
     
     var arrInfoData = [InfoData]()
+    //for sign button active
+    var buttonBefore :UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,7 @@ class HomeViewController: UIViewController {
         ]
         
         configure(with: arrInfoData)
-        configure2(with: arrInfoData)
+        configure2()
         
     }
     
@@ -133,27 +135,51 @@ class HomeViewController: UIViewController {
         
     }
     
-    func configure2(with data: [InfoData]) {
+    func configure2() {
         
         let scrollViewWidth: CGFloat = scrDate.frame.width
         let scrollViewHeight: CGFloat = scrDate.frame.height
         
-        for (index, item) in data.enumerated() {
+        let duration = 14
+
+        let calendar = Calendar.current
+        let today = Date()
+        var dateStart = calendar.date(byAdding: .day, value: ((duration-1) * -1), to: today)!
+        
+        //Array for Date
+        var arrDate = [Date]()
+        for i in 0...duration-1 {
+            let index = i
+            print("Date End \(dateStart)")
+            
+            let formatter = DateFormatter()
+            
+            formatter.dateFormat = "EEEE"
+            var day = formatter.string(from: dateStart)
+            print("Date End \(day.prefix(3).uppercased())")
+            
+            
             //For Scroll View Date
             //Ref : https://stackoverflow.com/questions/24030348/how-to-create-a-button-programmatically
-            let btnDate = UIButton(frame: CGRect(x: (scrollViewWidth / 7 * CGFloat(index)) + 20,
+            /*let btnDate = UIButton(frame: CGRect(x: (scrollViewWidth / 7 * CGFloat(index)) + 20,
                                                  y: 2.5,
             width: scrollViewWidth / 7,
             height: scrollViewHeight - 5))
             btnDate.backgroundColor = .green
             btnDate.setTitle("Test", for: .normal)
             
-            let btnDateView = UIView(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)),
+            */
+ 
+            let btnDateView = UIButton(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)),
                                                  y: 2.5,
                                                  width: scrollViewWidth / 6.5,
             height: scrollViewHeight - 5))
-            btnDateView.backgroundColor = .red
+            btnDateView.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)
             btnDateView.layer.cornerRadius = 10
+            
+            
+            btnDateView.tag = (i + 1)
+            btnDateView.addTarget(self, action: #selector(dateAction), for: .touchUpInside)
             
             
             let labelViewDay = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 15,
@@ -162,8 +188,8 @@ class HomeViewController: UIViewController {
             height: scrollViewHeight - 35))
             
             //Label for title (overlay)
-            labelViewDay.text = "DAY"
-            labelViewDay.textColor = UIColor.white
+            labelViewDay.text = day.prefix(3).uppercased()
+            labelViewDay.textColor = UIColor.black
             labelViewDay.font = UIFont.preferredFont(forTextStyle: .headline)
             
             
@@ -173,21 +199,53 @@ class HomeViewController: UIViewController {
             height: scrollViewHeight + 25))
             
             //Label for title (overlay)
-            labelViewDate.text = "23"
-            labelViewDate.textColor = UIColor.white
+            formatter.dateFormat = "dd"
+            day = formatter.string(from: dateStart)
+            
+            labelViewDate.text = day
+            labelViewDate.textColor = UIColor.black
             labelViewDate.font = UIFont.preferredFont(forTextStyle: .largeTitle)
             //labelViewDate.font = UIFont(name: "SF Pro Text", size: 30)
             
             
+            if(today == dateStart){
+                btnDateView.backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
+                labelViewDate.textColor = UIColor.white
+                labelViewDay.textColor = UIColor.white
+            }
+            
             scrDate.addSubview(btnDateView)
             scrDate.addSubview(labelViewDay)
             scrDate.addSubview(labelViewDate)
+            
+            arrDate.append(dateStart)
+            dateStart = calendar.date(byAdding: .day, value: 1, to: dateStart)!
         }
         
         // Set the scrollView contentSize
-       scrDate.contentSize = CGSize(width: scrDate.frame.width * CGFloat(data.count),
+       scrDate.contentSize = CGSize(width: scrDate.frame.width / 6 * CGFloat(duration),
                                        height: scrDate.frame.height)
         
+        scrDate.setContentOffset(CGPoint(x: scrDate.frame.width / 6 * CGFloat(duration - 6), y: 0), animated: true)
+        
+    }
+    
+    @objc func dateAction(sender :UIButton){
+        
+        let duration = 14
+        let calendar = Calendar.current
+        let today = Date()
+        let chooseDate = calendar.date(byAdding: .day, value: ((duration-(sender.tag)) * -1), to: today)!
+        print("Date Start = \(chooseDate)")
+        //format date : tanggal - bulan - tahun
+        sender.layer.borderWidth = 1
+        sender.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        
+        if(buttonBefore != nil){
+            buttonBefore.layer.borderWidth = 0
+        }
+        
+        buttonBefore = sender
     }
     
     //Send Info Data

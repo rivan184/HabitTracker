@@ -39,7 +39,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bFI-i0-CMV">
                                 <rect key="frame" x="0.0" y="289" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98039215690000003" green="0.66274509800000003" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="oGj-QR-AgP"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="fP3-I9-Ehb"/>
                             </scrollView>
