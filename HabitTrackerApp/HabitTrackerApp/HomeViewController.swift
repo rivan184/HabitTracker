@@ -16,10 +16,13 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var scrImage: UIScrollView!
     
+    @IBOutlet weak var scrDate: UIScrollView!
     @IBOutlet weak var pageImage: UIPageControl!
     
     var dataManager:DataManager?
     var arrInfoData = [InfoData]()
+    //for sign button active
+    var buttonBefore :UIButton!
     var selectedDate:String = ""
     var cCalendar = Calendar.current
     var selectedCellPath:IndexPath?
@@ -48,7 +51,7 @@ class HomeViewController: UIViewController {
         updateSelectedDate(date: cDate)
         updateView()
         configure(with: arrInfoData)
-        
+        configure2()
     }
     
     func updateSelectedDate(date:Date)
@@ -123,7 +126,6 @@ class HomeViewController: UIViewController {
             labelViewTitle.text = item.title
             labelViewTitle.textColor = UIColor.white
             labelViewTitle.font = UIFont.preferredFont(forTextStyle: .title1)
-            //labelViewTitle.font = UIFont..
             
             //Label for description(overlay)
             let labelViewContent = UILabel(frame: CGRect(x: scrollViewWidth * CGFloat(index) + 10,
@@ -141,6 +143,8 @@ class HomeViewController: UIViewController {
             scrImage.addSubview(imageView)
             scrImage.addSubview(labelViewTitle)
             scrImage.addSubview(labelViewContent)
+            
+            
         }
         
         // Set the scrollView contentSize
@@ -152,30 +156,128 @@ class HomeViewController: UIViewController {
         
     }
     
-    //Send Info Data
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    func configure2() {
         
-        if segue.identifier == "showHabitDetail"
+        let scrollViewWidth: CGFloat = scrDate.frame.width
+        let scrollViewHeight: CGFloat = scrDate.frame.height
+        
+        let duration = 14
+
+        let calendar = Calendar.current
+        let today = Date()
+        var dateStart = calendar.date(byAdding: .day, value: ((duration-1) * -1), to: today)!
+        
+        //Array for Date
+        var arrDate = [Date]()
+        for i in 0...duration-1 {
+            let index = i
+            print("Date End \(dateStart)")
+            
+            let formatter = DateFormatter()
+            
+            formatter.dateFormat = "EEEE"
+            var day = formatter.string(from: dateStart)
+            print("Date End \(day.prefix(3).uppercased())")
+            
+            
+            //For Scroll View Date
+            //Ref : https://stackoverflow.com/questions/24030348/how-to-create-a-button-programmatically
+            /*let btnDate = UIButton(frame: CGRect(x: (scrollViewWidth / 7 * CGFloat(index)) + 20,
+                                                 y: 2.5,
+            width: scrollViewWidth / 7,
+            height: scrollViewHeight - 5))
+            btnDate.backgroundColor = .green
+            btnDate.setTitle("Test", for: .normal)
+            
+            */
+ 
+            let btnDateView = UIButton(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)),
+                                                 y: 2.5,
+                                                 width: scrollViewWidth / 6.5,
+            height: scrollViewHeight - 5))
+            btnDateView.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)
+            btnDateView.layer.cornerRadius = 10
+            
+            
+            btnDateView.tag = (i + 1)
+            btnDateView.addTarget(self, action: #selector(dateAction), for: .touchUpInside)
+            
+            
+            let labelViewDay = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 15,
+                                                 y: 1,
+                                                 width: scrollViewWidth / 6.5,
+            height: scrollViewHeight - 35))
+            
+            //Label for title (overlay)
+            labelViewDay.text = day.prefix(3).uppercased()
+            labelViewDay.textColor = UIColor.black
+            labelViewDay.font = UIFont.preferredFont(forTextStyle: .headline)
+            
+            
+            let labelViewDate = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 10,
+                                                 y: 2.5,
+                                                 width: scrollViewWidth / 6.5,
+            height: scrollViewHeight + 25))
+            
+            //Label for title (overlay)
+            formatter.dateFormat = "dd"
+            day = formatter.string(from: dateStart)
+            
+            labelViewDate.text = day
+            labelViewDate.textColor = UIColor.black
+            labelViewDate.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+            //labelViewDate.font = UIFont(name: "SF Pro Text", size: 30)
+    
+        
+            if(today == dateStart){
         {
-            var habitData:Habit? = nil
+                btnDateView.backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
             if sender != nil
             {
-                habitData = sender as? Habit
+                labelViewDate.textColor = UIColor.white
+                labelViewDay.textColor = UIColor.white
             }
             
+            scrDate.addSubview(btnDateView)
+            scrDate.addSubview(labelViewDay)
+            scrDate.addSubview(labelViewDate)
             
-            let habitDataVC = segue.destination as? HabitDataVC
-            let rootVC = tabBarController as! TabBarViewController
+            arrDate.append(dateStart)
+            dateStart = calendar.date(byAdding: .day, value: 1, to: dateStart)!
             habitDataVC?.fillPredefinedData(defaultData: habitData,rootVC:rootVC)
         }
-        else
-        {
-            if let infoView = segue.destination as? InfoViewController{
-                infoView.initData(infoData: arrInfoData[pageImage.currentPage])
+        
+        // Set the scrollView contentSize
+       scrDate.contentSize = CGSize(width: scrDate.frame.width / 6 * CGFloat(duration),
+                                       height: scrDate.frame.height)
+        
+        scrDate.setContentOffset(CGPoint(x: scrDate.frame.width / 6 * CGFloat(duration - 6), y: 0), animated: true)
+        
             }
+    
+    @objc func dateAction(sender :UIButton){
+        
+        let duration = 14
+        let calendar = Calendar.current
+        let today = Date()
+        let chooseDate = calendar.date(byAdding: .day, value: ((duration-(sender.tag)) * -1), to: today)!
+        
+        let day = calendar.component(.day, from: chooseDate)
+        let month = calendar.component(.month, from: chooseDate)
+        let year = calendar.component(.year, from: chooseDate)
+        let dateString = "\(day)-\(month)-\(year)"
 
+        print("Date Start = \(dateString)")
+        //format date : tanggal - bulan - tahun
+        sender.layer.borderWidth = 1
+        sender.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        
+        if(buttonBefore != nil){
+            buttonBefore.layer.borderWidth = 0
         }
         
+        buttonBefore = sender
+    }
         
     }
     
@@ -232,7 +334,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //        let cell = tableView.cellForRow(at: indexPath)
 //        cell?.isHighlighted = false
     }
-}
 
 // MARK: UIScrollViewDelegate
 // For page indicator
