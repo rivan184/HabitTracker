@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         //imageViewSetting()
         setupCell()
-//        setupData()
+        //        setupData()
         setupLongPressGesture()
         print("Home ViewController")
         
@@ -61,7 +61,7 @@ class HomeViewController: UIViewController {
         let year = cCalendar.component(.year, from: date)
         selectedDate = "\(day)-\(month)-\(year)"
     }
- 
+    
     func updateView()
     {
         noHabitLabel.isHidden = (dataManager?.habitArr.count != 0)
@@ -93,8 +93,8 @@ class HomeViewController: UIViewController {
         habitList.register(UINib(nibName: "HabitTableViewCell", bundle: nil), forCellReuseIdentifier: "habitCell")
     }
     
-
-
+    
+    
     //Image Carousel
     func configure(with data: [InfoData]) {
         // Get the scrollView width and height
@@ -115,12 +115,12 @@ class HomeViewController: UIViewController {
             //Tap Image interaction
             imageView.isUserInteractionEnabled = true
             imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageTap)))
-
+            
             
             let labelViewTitle = UILabel(frame: CGRect(x: scrollViewWidth * CGFloat(index) + 10,
-            y: 0,
-            width: scrollViewWidth,
-            height: scrollViewHeight))
+                                                       y: 0,
+                                                       width: scrollViewWidth,
+                                                       height: scrollViewHeight))
             
             //Label for title (overlay)
             labelViewTitle.text = item.title
@@ -129,16 +129,16 @@ class HomeViewController: UIViewController {
             
             //Label for description(overlay)
             let labelViewContent = UILabel(frame: CGRect(x: scrollViewWidth * CGFloat(index) + 10,
-            y: 35,
-            width: scrollViewWidth,
-            height: scrollViewHeight))
+                                                         y: 35,
+                                                         width: scrollViewWidth,
+                                                         height: scrollViewHeight))
             
             labelViewContent.text = item.description
             labelViewContent.textColor = UIColor.white
             labelViewContent.font = UIFont.preferredFont(forTextStyle: .body)
             labelViewContent.lineBreakMode = .byWordWrapping
             labelViewContent.numberOfLines = 2
-
+            
             
             scrImage.addSubview(imageView)
             scrImage.addSubview(labelViewTitle)
@@ -149,139 +149,135 @@ class HomeViewController: UIViewController {
         
         // Set the scrollView contentSize
         scrImage.contentSize = CGSize(width: scrImage.frame.width * CGFloat(data.count),
-                                        height: scrImage.frame.height)
+                                      height: scrImage.frame.height)
         
         // Ensure that the pageControl knows the number of pages
         pageImage.numberOfPages = data.count
         
     }
     
-    func configure2() {
-        
-        let scrollViewWidth: CGFloat = scrDate.frame.width
-        let scrollViewHeight: CGFloat = scrDate.frame.height
-        
-        let duration = 14
+   func configure2() {
+           
+           let scrollViewWidth: CGFloat = scrDate.frame.width
+           let scrollViewHeight: CGFloat = scrDate.frame.height
+           
+           let duration = 14
 
-        let calendar = Calendar.current
-        let today = Date()
-        var dateStart = calendar.date(byAdding: .day, value: ((duration-1) * -1), to: today)!
-        
-        //Array for Date
-        var arrDate = [Date]()
-        for i in 0...duration-1 {
-            let index = i
-            print("Date End \(dateStart)")
-            
-            let formatter = DateFormatter()
-            
-            formatter.dateFormat = "EEEE"
-            var day = formatter.string(from: dateStart)
-            print("Date End \(day.prefix(3).uppercased())")
-            
-            
-            //For Scroll View Date
-            //Ref : https://stackoverflow.com/questions/24030348/how-to-create-a-button-programmatically
-            /*let btnDate = UIButton(frame: CGRect(x: (scrollViewWidth / 7 * CGFloat(index)) + 20,
-                                                 y: 2.5,
-            width: scrollViewWidth / 7,
-            height: scrollViewHeight - 5))
-            btnDate.backgroundColor = .green
-            btnDate.setTitle("Test", for: .normal)
-            
-            */
- 
-            let btnDateView = UIButton(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)),
-                                                 y: 2.5,
-                                                 width: scrollViewWidth / 6.5,
-            height: scrollViewHeight - 5))
-            btnDateView.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)
-            btnDateView.layer.cornerRadius = 10
-            
-            
-            btnDateView.tag = (i + 1)
-            btnDateView.addTarget(self, action: #selector(dateAction), for: .touchUpInside)
-            
-            
-            let labelViewDay = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 15,
-                                                 y: 1,
-                                                 width: scrollViewWidth / 6.5,
-            height: scrollViewHeight - 35))
-            
-            //Label for title (overlay)
-            labelViewDay.text = day.prefix(3).uppercased()
-            labelViewDay.textColor = UIColor.black
-            labelViewDay.font = UIFont.preferredFont(forTextStyle: .headline)
-            
-            
-            let labelViewDate = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 10,
-                                                 y: 2.5,
-                                                 width: scrollViewWidth / 6.5,
-            height: scrollViewHeight + 25))
-            
-            //Label for title (overlay)
-            formatter.dateFormat = "dd"
-            day = formatter.string(from: dateStart)
-            
-            labelViewDate.text = day
-            labelViewDate.textColor = UIColor.black
-            labelViewDate.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-            //labelViewDate.font = UIFont(name: "SF Pro Text", size: 30)
+           let calendar = Calendar.current
+           let today = Date()
+           var dateStart = calendar.date(byAdding: .day, value: ((duration-1) * -1), to: today)!
+           
+           //Array for Date
+           var arrDate = [Date]()
+           for i in 0...duration-1 {
+               let index = i
+               print("Date End \(dateStart)")
+               
+               let formatter = DateFormatter()
+               
+               formatter.dateFormat = "EEEE"
+               var day = formatter.string(from: dateStart)
+               print("Date End \(day.prefix(3).uppercased())")
+               
+               
+               //For Scroll View Date
+               //Ref : https://stackoverflow.com/questions/24030348/how-to-create-a-button-programmatically
+               /*let btnDate = UIButton(frame: CGRect(x: (scrollViewWidth / 7 * CGFloat(index)) + 20,
+                                                    y: 2.5,
+               width: scrollViewWidth / 7,
+               height: scrollViewHeight - 5))
+               btnDate.backgroundColor = .green
+               btnDate.setTitle("Test", for: .normal)
+               
+               */
     
+               let btnDateView = UIButton(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)),
+                                                    y: 2.5,
+                                                    width: scrollViewWidth / 6.5,
+               height: scrollViewHeight - 5))
+               btnDateView.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)
+               btnDateView.layer.cornerRadius = 10
+               
+               
+               btnDateView.tag = (i + 1)
+               btnDateView.addTarget(self, action: #selector(dateAction), for: .touchUpInside)
+               
+               
+               let labelViewDay = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 15,
+                                                    y: 1,
+                                                    width: scrollViewWidth / 6.5,
+               height: scrollViewHeight - 35))
+               
+               //Label for title (overlay)
+               labelViewDay.text = day.prefix(3).uppercased()
+               labelViewDay.textColor = UIColor.black
+               labelViewDay.font = UIFont.preferredFont(forTextStyle: .headline)
+               
+               
+               let labelViewDate = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 10,
+                                                    y: 2.5,
+                                                    width: scrollViewWidth / 6.5,
+               height: scrollViewHeight + 25))
+               
+               //Label for title (overlay)
+               formatter.dateFormat = "dd"
+               day = formatter.string(from: dateStart)
+               
+               labelViewDate.text = day
+               labelViewDate.textColor = UIColor.black
+               labelViewDate.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+               //labelViewDate.font = UIFont(name: "SF Pro Text", size: 30)
+               
+               
+               if(today == dateStart){
+                   btnDateView.backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
+                   labelViewDate.textColor = UIColor.white
+                   labelViewDay.textColor = UIColor.white
+               }
+               
+               scrDate.addSubview(btnDateView)
+               scrDate.addSubview(labelViewDay)
+               scrDate.addSubview(labelViewDate)
+               
+               arrDate.append(dateStart)
+               dateStart = calendar.date(byAdding: .day, value: 1, to: dateStart)!
+           }
+           
+           // Set the scrollView contentSize
+          scrDate.contentSize = CGSize(width: scrDate.frame.width / 6 * CGFloat(duration),
+                                          height: scrDate.frame.height)
+           
+           scrDate.setContentOffset(CGPoint(x: scrDate.frame.width / 6 * CGFloat(duration - 6), y: 0), animated: true)
+           
+       }
         
-            if(today == dateStart){
-        {
-                btnDateView.backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
-            if sender != nil
-            {
-                labelViewDate.textColor = UIColor.white
-                labelViewDay.textColor = UIColor.white
+        @objc func dateAction(sender :UIButton){
+            
+            let duration = 14
+            let calendar = Calendar.current
+            let today = Date()
+            let chooseDate = calendar.date(byAdding: .day, value: ((duration-(sender.tag)) * -1), to: today)!
+            
+            let day = calendar.component(.day, from: chooseDate)
+            let month = calendar.component(.month, from: chooseDate)
+            let year = calendar.component(.year, from: chooseDate)
+            let dateString = "\(day)-\(month)-\(year)"
+            
+            print("Date Start = \(dateString)")
+            //format date : tanggal - bulan - tahun
+            sender.layer.borderWidth = 1
+            sender.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            
+            if(buttonBefore != nil){
+                buttonBefore.layer.borderWidth = 0
             }
             
-            scrDate.addSubview(btnDateView)
-            scrDate.addSubview(labelViewDay)
-            scrDate.addSubview(labelViewDate)
-            
-            arrDate.append(dateStart)
-            dateStart = calendar.date(byAdding: .day, value: 1, to: dateStart)!
-            habitDataVC?.fillPredefinedData(defaultData: habitData,rootVC:rootVC)
+            buttonBefore = sender
         }
         
-        // Set the scrollView contentSize
-       scrDate.contentSize = CGSize(width: scrDate.frame.width / 6 * CGFloat(duration),
-                                       height: scrDate.frame.height)
-        
-        scrDate.setContentOffset(CGPoint(x: scrDate.frame.width / 6 * CGFloat(duration - 6), y: 0), animated: true)
-        
-            }
     
-    @objc func dateAction(sender :UIButton){
-        
-        let duration = 14
-        let calendar = Calendar.current
-        let today = Date()
-        let chooseDate = calendar.date(byAdding: .day, value: ((duration-(sender.tag)) * -1), to: today)!
-        
-        let day = calendar.component(.day, from: chooseDate)
-        let month = calendar.component(.month, from: chooseDate)
-        let year = calendar.component(.year, from: chooseDate)
-        let dateString = "\(day)-\(month)-\(year)"
-
-        print("Date Start = \(dateString)")
-        //format date : tanggal - bulan - tahun
-        sender.layer.borderWidth = 1
-        sender.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        
-        if(buttonBefore != nil){
-            buttonBefore.layer.borderWidth = 0
-        }
-        
-        buttonBefore = sender
-    }
-        
-    }
     
-
+    
 }
 
 //MARK: TableView Delegate & Data Source
@@ -292,7 +288,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! HabitTableViewCell
-//        cell.model = habitModel[indexPath.row]
+        //        cell.model = habitModel[indexPath.row]
         cell.model = dataManager?.habitArr[indexPath.row]
         cell.date = selectedDate
         return cell
@@ -313,7 +309,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     //Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("Tapped index: ", indexPath.row)
+        //        print("Tapped index: ", indexPath.row)
         let selectedHabit = dataManager?.habitArr[indexPath.row]
         let progress = selectedHabit?.currentGoalFor(date: selectedDate)
         let ratio = Float(progress!) / Float(selectedHabit!.goal)
@@ -321,20 +317,21 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         if ratio < 1 {
             //Increment habit progress
             selectedHabit?.update(date: selectedDate, value: progress!+1)
-//            habitModel[indexPath.row].tapProgress += 1
+            //            habitModel[indexPath.row].tapProgress += 1
         }
         //Updating tableView
-//        let cell = tableView.cellForRow(at: indexPath)
-//        cell?.isSelected = true
+        //        let cell = tableView.cellForRow(at: indexPath)
+        //        cell?.isSelected = true
         
         tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        let cell = tableView.cellForRow(at: indexPath)
-//        cell?.isHighlighted = false
+        //        let cell = tableView.cellForRow(at: indexPath)
+        //        cell?.isHighlighted = false
     }
-
+    
+}
 // MARK: UIScrollViewDelegate
 // For page indicator
 extension HomeViewController: UIScrollViewDelegate {
@@ -354,7 +351,7 @@ extension HomeViewController {
         longPressRecognizer.minimumPressDuration = 0.6
         self.view.addGestureRecognizer(longPressRecognizer)
     }
-
+    
     @objc func handleLongPres(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
         if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
             let touchPoint = longPressGestureRecognizer.location(in: self.habitList)
