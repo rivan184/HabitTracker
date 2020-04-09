@@ -19,7 +19,8 @@ class CustomTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        frame = CGRect(origin: frame.origin, size: CGSize(width: frame.size.width, height: 250))
+//        self.contentView.frame = CGRect(origin: frame.origin, size: CGSize(width: frame.size.width, height: 3000))
+//        frame =
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

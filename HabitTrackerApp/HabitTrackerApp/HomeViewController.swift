@@ -230,7 +230,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 //        let cell = tableView.cellForRow(at: indexPath)
-//        cell?.isSelected = false
+//        cell?.isHighlighted = false
     }
 }
 
@@ -250,7 +250,7 @@ extension HomeViewController {
     func setupLongPressGesture(){
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPres(_:)))
         //Long Press Duration in seconds
-        longPressRecognizer.minimumPressDuration = 1.0
+        longPressRecognizer.minimumPressDuration = 0.6
         self.view.addGestureRecognizer(longPressRecognizer)
     }
 

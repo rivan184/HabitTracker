@@ -16,6 +16,7 @@ class HabitTableViewCell: UITableViewCell {
     @IBOutlet weak var backgroundProgress: UIView!
     @IBOutlet weak var selectedView: UIView!
     
+    @IBOutlet weak var holdToEditLabel: UILabel!
     var maxWidth = 358
     
     override func awakeFromNib() {
@@ -70,10 +71,12 @@ class HabitTableViewCell: UITableViewCell {
             if isHighlighted
             {
                 selectedView.isHidden = false
+                holdToEditLabel.isHidden = false
             }
             else
             {
                 selectedView.isHidden = true
+                holdToEditLabel.isHidden = true
             }
         }
     }

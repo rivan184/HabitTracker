@@ -76,7 +76,19 @@ class AddHabitViewController: UIViewController {
         
         //save button
         saveBtn.isEnabled = false
-        counter = 0
+        
+        checkSaveButton()
+        
+    }
+    
+    func checkSaveButton()
+    {
+        saveBtn.backgroundColor = .gray
+        if habitData.name.count > 0 && habitData.goal > 0
+        {
+            saveBtn.isEnabled = true
+            saveBtn.backgroundColor = #colorLiteral(red: 0.8888156414, green: 0.2865197659, blue: 0.2528704703, alpha: 1)            
+        }
     }
     
     func fillPredefinedData(predefinedHabit:PreDefinedHabit?,rootVC:TabBarViewController)
@@ -84,8 +96,10 @@ class AddHabitViewController: UIViewController {
         self.rootVC = rootVC
         habitData = Habit(name: "", goal: 0, color: .RED)
         print(habitData)
+        counter = 0
         if predefinedHabit != nil
         {
+            counter = 2
             habitData.name = predefinedHabit!.habitName
             print("\(habitData.name) \(predefinedHabit!.habitName)")
             habitData.goal = predefinedHabit!.habitGoal
@@ -139,10 +153,21 @@ class AddHabitViewController: UIViewController {
         if let field = habitField.text
         {
             habitData.name = field
-            counter! += 1
-            if counter == 2{
-                saveBtn.isEnabled = true
+            if habitData.name.count > 0
+            {
+                counter! += 1
             }
+            else
+            {
+                counter! -= 1
+                if(counter! < 0)
+                {
+                    counter = 0
+                }
+                
+            }
+            
+            checkSaveButton()
         }
     }
     
@@ -156,10 +181,20 @@ class AddHabitViewController: UIViewController {
         {
             habitData.goal = Int(field) ?? 0
             goalStepper.value = Double(habitData.goal)
-            counter! += 1
-            if counter == 2{
-                saveBtn.isEnabled = true
+            if habitData.goal >= 0
+            {
+                counter! += 1
             }
+            else
+            {
+                counter! -= 1
+                if(counter! < 0)
+                {
+                    counter = 0
+                }
+            }
+            
+            checkSaveButton()
         }
     }
     

@@ -47,7 +47,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="qCY-x4-Cjw"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="calendar" catalog="system" id="qCY-x4-Cjw"/>
                     <connections>
                         <outlet property="habitList" destination="4r5-W3-iQG" id="wXx-AK-aYy"/>
                         <outlet property="noHabitLabel" destination="1v2-TV-ETX" id="lgV-x7-Vdo"/>
@@ -190,8 +190,11 @@
                         <outlet property="currentGoalLabel" destination="6e0-db-fbn" id="04C-4m-f7r"/>
                         <outlet property="habitColor" destination="aVr-c3-0cV" id="FDZ-QH-ceT"/>
                         <outlet property="habitGoalLabel" destination="RMX-x4-6mR" id="Q8D-Pw-a4n"/>
-                        <outlet property="habitName" destination="tAx-3L-lB3" id="zgV-NI-qt6"/>
+                        <outlet property="habitName" destination="tAx-3L-lB3" id="rgp-WO-SeR"/>
                         <outlet property="saveButton" destination="fyg-Z0-ZaQ" id="mba-hY-ciY"/>
+                        <outletCollection property="boxContainer" destination="OoW-b0-uBr" collectionClass="NSMutableArray" id="f6k-jg-ZAR"/>
+                        <outletCollection property="boxContainer" destination="5yf-bz-Ucg" collectionClass="NSMutableArray" id="ayP-u3-NJH"/>
+                        <outletCollection property="boxContainer" destination="p14-kr-cHj" collectionClass="NSMutableArray" id="Mrp-ix-Fiv"/>
                         <segue destination="qLP-dj-FNP" kind="presentation" identifier="editView" id="sK8-yH-xHQ"/>
                     </connections>
                 </viewController>
@@ -453,7 +456,7 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
             </objects>
             <point key="canvasLocation" x="2229" y="-431"/>
         </scene>
-        <!--Add-->
+        <!--Add Habit-->
         <scene sceneID="9A8-7g-66p">
             <objects>
                 <viewController id="wSM-wY-Lrv" customClass="NewHabitViewController" customModule="HabitTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -479,20 +482,20 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
                                     <action selector="addNewHabit:" destination="wSM-wY-Lrv" eventType="touchUpInside" id="B5l-hm-gtQ"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4W1-dI-HkW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" estimatedRowHeight="15" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4W1-dI-HkW">
                                 <rect key="frame" x="20" y="205" width="374" height="583"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="144" id="oc0-up-TkK" customClass="CustomTableViewCell" customModule="HabitTrackerApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="144"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="154" id="oc0-up-TkK" customClass="CustomTableViewCell" customModule="HabitTrackerApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oc0-up-TkK" id="3aT-G9-c3K">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="154"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="nRO-KP-Qrb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="144"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="151"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="habitDesc" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdu-Rz-2T7">
@@ -534,7 +537,7 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="R5o-I7-bje"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Add" id="LXX-Eg-D2y"/>
+                    <tabBarItem key="tabBarItem" title="Add Habit" image="plus.circle" catalog="system" id="LXX-Eg-D2y"/>
                     <connections>
                         <outlet property="addHabitBtn" destination="ix9-hv-a0n" id="Aq0-xS-PIG"/>
                         <outlet property="tableView" destination="4W1-dI-HkW" id="V2U-6n-zTg"/>
@@ -591,6 +594,9 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
                                         <rect key="frame" x="42" y="348" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="colorTapped:" destination="7Eu-4E-XEB" eventType="touchUpInside" id="edZ-8A-jJE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -678,16 +684,25 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
                                 <rect key="frame" x="117" y="592" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="colorTapped:" destination="7Eu-4E-XEB" eventType="touchUpInside" id="DsP-kj-Vft"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7w-hB-GyL" userLabel="color 3">
                                 <rect key="frame" x="192" y="592" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="colorTapped:" destination="7Eu-4E-XEB" eventType="touchUpInside" id="4F2-3u-YmP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfe-jL-Ei1" userLabel="color 4">
                                 <rect key="frame" x="266" y="592" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="colorTapped:" destination="7Eu-4E-XEB" eventType="touchUpInside" id="XRi-mL-M8m"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiN-Fm-aeA">
                                 <rect key="frame" x="42" y="44" width="53" height="33"/>
@@ -716,6 +731,10 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
                         <outlet property="goalStepper" destination="0Nk-sV-Me8" id="737-Fm-HU4"/>
                         <outlet property="habitField" destination="q8D-qS-NVO" id="HZa-Qf-Gw2"/>
                         <outlet property="saveBtn" destination="XdR-2Q-d7G" id="9qZ-Em-uya"/>
+                        <outletCollection property="colorPickers" destination="Mtf-X6-ZEX" collectionClass="NSMutableArray" id="4Zm-IL-8Lk"/>
+                        <outletCollection property="colorPickers" destination="zq8-yS-3Yc" collectionClass="NSMutableArray" id="u7h-nM-UlN"/>
+                        <outletCollection property="colorPickers" destination="d7w-hB-GyL" collectionClass="NSMutableArray" id="vDN-Pt-2wb"/>
+                        <outletCollection property="colorPickers" destination="qfe-jL-Ei1" collectionClass="NSMutableArray" id="fr5-jt-HDl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwm-z7-Vov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -787,7 +806,7 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Gb-kM-IJw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="cOa-vS-NkX"/>
+                    <tabBarItem key="tabBarItem" title="Emergency" image="phone.circle" catalog="system" id="cOa-vS-NkX"/>
                     <connections>
                         <outlet property="callNowButton" destination="0Dz-wr-uFo" id="Bbx-gx-fVH"/>
                     </connections>
@@ -798,7 +817,10 @@ Jokowi mengatakan, pemerintah menetapkan pelanggan listrik di golongan 450 VA ak
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="close" width="512" height="512"/>
+        <image name="phone.circle" catalog="system" width="64" height="60"/>
+        <image name="plus.circle" catalog="system" width="64" height="60"/>
         <image name="testImage" width="5163" height="2905"/>
     </resources>
 </document>

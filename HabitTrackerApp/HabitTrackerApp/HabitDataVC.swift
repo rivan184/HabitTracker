@@ -23,6 +23,7 @@ class HabitDataVC: UIViewController {
     @IBOutlet weak var habitName: UILabel!
     @IBOutlet weak var currentGoalForDate: UILabel!
     @IBOutlet weak var currentGoalLabel: UILabel!
+    @IBOutlet var boxContainer:[UIView]!
     
     var habitData:Habit = Habit()
     var selectedColor:UIButton?
@@ -50,7 +51,10 @@ class HabitDataVC: UIViewController {
 //
 //
 //        goalField.keyboardType = .numberPad
-        
+        for i in boxContainer
+        {
+            i.layer.cornerRadius = 10
+        }
         setupValue()
         calendarView.delegate = self
         //dismiss keyboard when touch the screen
@@ -85,6 +89,7 @@ class HabitDataVC: UIViewController {
                 
         habitGoalLabel.text = "\(habitData.goal)x"
         habitColor.backgroundColor = predefinedColorValue[PreDefinedColor(rawValue: habitData.color)!]
+        calendarView.refresh()
         
     }
     

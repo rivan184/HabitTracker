@@ -13,6 +13,7 @@
 		473D151724378578002AAE71 /* HabitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 473D151524378578002AAE71 /* HabitTableViewCell.xib */; };
 		473D151924378602002AAE71 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D151824378602002AAE71 /* DummyData.swift */; };
 		9957CE6A243C19A600FA9C03 /* InfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9957CE69243C19A600FA9C03 /* InfoData.swift */; };
+		A1341EF7243EEB5100D03A03 /* PreDefinedHabitTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1341EF5243EEB5100D03A03 /* PreDefinedHabitTC.xib */; };
 		A186130424337343009A5F90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130324337343009A5F90 /* AppDelegate.swift */; };
 		A186130624337343009A5F90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130524337343009A5F90 /* SceneDelegate.swift */; };
 		A186130824337343009A5F90 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186130724337343009A5F90 /* HomeViewController.swift */; };
@@ -40,6 +41,7 @@
 		473D151524378578002AAE71 /* HabitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HabitTableViewCell.xib; sourceTree = "<group>"; };
 		473D151824378602002AAE71 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		9957CE69243C19A600FA9C03 /* InfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoData.swift; sourceTree = "<group>"; };
+		A1341EF5243EEB5100D03A03 /* PreDefinedHabitTC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreDefinedHabitTC.xib; sourceTree = "<group>"; };
 		A186130024337343009A5F90 /* HabitTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A186130324337343009A5F90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A186130524337343009A5F90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				A186130724337343009A5F90 /* HomeViewController.swift */,
 				A1B87010243EBB650092B73F /* EditHabitVC.swift */,
 				A186130924337343009A5F90 /* Main.storyboard */,
+				A1341EF5243EEB5100D03A03 /* PreDefinedHabitTC.xib */,
 				F4526B0724363C56004B0BB2 /* NewHabitViewController.swift */,
 				A1DACB1C243C666E00A45B2E /* TabBarViewController.swift */,
 				F4526B0524363B7F004B0BB2 /* AddHabitViewController.swift */,
@@ -213,6 +216,7 @@
 			files = (
 				A1DACB17243B2F5900A45B2E /* CalendarView.xib in Resources */,
 				A186131024337344009A5F90 /* LaunchScreen.storyboard in Resources */,
+				A1341EF7243EEB5100D03A03 /* PreDefinedHabitTC.xib in Resources */,
 				A186130D24337344009A5F90 /* Assets.xcassets in Resources */,
 				473D151724378578002AAE71 /* HabitTableViewCell.xib in Resources */,
 				A186130B24337343009A5F90 /* Main.storyboard in Resources */,

@@ -141,12 +141,12 @@ class DataManager
     init()
     {
 //        uncomment this 2 line and run once, to delete all save data
-//        UserDefaults.standard.removeObject(forKey: saveDataKey)
-//        UserDefaults.standard.synchronize()
+        UserDefaults.standard.removeObject(forKey: saveDataKey)
+        UserDefaults.standard.synchronize()
         
 // uncomment 2 lines below to use template data
-        TestData()
-        save()
+//        TestData()
+//        save()
         load()
     }
     

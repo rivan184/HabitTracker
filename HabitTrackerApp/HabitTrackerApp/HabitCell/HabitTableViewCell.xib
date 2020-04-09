@@ -46,6 +46,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold to edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VJc-vI-f1F">
+                        <rect key="frame" x="163" y="44" width="58" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="xjy-bB-ZJE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="A7s-re-sRb"/>
@@ -70,6 +77,7 @@
                 <outlet property="backgroundProgress" destination="H5d-Go-E7L" id="UI0-qz-tW4"/>
                 <outlet property="habitGoal" destination="qAN-Ng-YL8" id="2m3-iG-wrq"/>
                 <outlet property="habitTitle" destination="xjy-bB-ZJE" id="LRt-1q-28V"/>
+                <outlet property="holdToEditLabel" destination="VJc-vI-f1F" id="zan-TR-API"/>
                 <outlet property="progressView" destination="vAJ-en-wud" id="G3r-VM-TTq"/>
                 <outlet property="selectedView" destination="tZq-kE-O8l" id="3cv-kJ-CA5"/>
                 <outlet property="widthConstraint" destination="xdg-Nn-tyA" id="4L2-nY-ihL"/>
