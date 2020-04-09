@@ -236,7 +236,13 @@ class HomeViewController: UIViewController {
         let calendar = Calendar.current
         let today = Date()
         let chooseDate = calendar.date(byAdding: .day, value: ((duration-(sender.tag)) * -1), to: today)!
-        print("Date Start = \(chooseDate)")
+        
+        let day = calendar.component(.day, from: chooseDate)
+        let month = calendar.component(.month, from: chooseDate)
+        let year = calendar.component(.year, from: chooseDate)
+        let dateString = "\(day)-\(month)-\(year)"
+        
+        print("Date Start = \(dateString)")
         //format date : tanggal - bulan - tahun
         sender.layer.borderWidth = 1
         sender.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
