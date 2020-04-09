@@ -376,6 +376,7 @@
                         <outlet property="goalField" destination="jce-7n-Ota" id="B0G-CV-mep"/>
                         <outlet property="goalStepper" destination="ueS-I7-poK" id="f4U-2h-FR9"/>
                         <outlet property="habitField" destination="dZ4-25-sme" id="ZBC-Dy-JqZ"/>
+                        <outlet property="habitName" destination="tAx-3L-lB3" id="zgV-NI-qt6"/>
                         <outlet property="saveBtn" destination="ltO-Ma-txD" id="f1U-Ab-6qT"/>
                         <outletCollection property="colorPickers" destination="hW0-fq-Edp" collectionClass="NSMutableArray" id="uWb-Mx-B4e"/>
                         <outletCollection property="colorPickers" destination="6df-iP-vga" collectionClass="NSMutableArray" id="Wo5-oa-1TU"/>
