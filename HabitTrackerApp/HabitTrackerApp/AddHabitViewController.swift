@@ -21,6 +21,8 @@ class AddHabitViewController: UIViewController {
     var selectedColor:UIButton?
     var rootVC:TabBarViewController?
     
+    var counter : Int?
+    
     
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var goalField: UITextField!
@@ -71,6 +73,10 @@ class AddHabitViewController: UIViewController {
         
         //dismiss keyboard when touch the screen
         self.dismissKey()
+        
+        //save button
+        saveBtn.isEnabled = false
+        counter = 0
     }
     
     func fillPredefinedData(predefinedHabit:PreDefinedHabit?,rootVC:TabBarViewController)
@@ -133,6 +139,10 @@ class AddHabitViewController: UIViewController {
         if let field = habitField.text
         {
             habitData.name = field
+            counter! += 1
+            if counter == 2{
+                saveBtn.isEnabled = true
+            }
         }
     }
     
@@ -146,17 +156,24 @@ class AddHabitViewController: UIViewController {
         {
             habitData.goal = Int(field) ?? 0
             goalStepper.value = Double(habitData.goal)
+            counter! += 1
+            if counter == 2{
+                saveBtn.isEnabled = true
+            }
         }
     }
     
     @IBAction func saveTapped(_ sender: Any) {
         print("saveTapped")
+
         rootVC?.saveDataManager.addNewHabit(newHabit: habitData)
         rootVC?.selectedIndex = 0
         let homeVC = rootVC?.availableViewControllers[0] as! HomeViewController
         homeVC.updateView()
         rootVC?.saveDataManager.save()
+       
         dismiss(animated: true)
+  
     }
     
     
