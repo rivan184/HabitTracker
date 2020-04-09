@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var scrImage: UIScrollView!
     
+    @IBOutlet weak var scrDate: UIScrollView!
     @IBOutlet weak var pageImage: UIPageControl!
     
     var arrInfoData = [InfoData]()
@@ -38,6 +39,7 @@ class HomeViewController: UIViewController {
         ]
         
         configure(with: arrInfoData)
+        configure2(with: arrInfoData)
         
     }
     
@@ -101,7 +103,6 @@ class HomeViewController: UIViewController {
             labelViewTitle.text = item.title
             labelViewTitle.textColor = UIColor.white
             labelViewTitle.font = UIFont.preferredFont(forTextStyle: .title1)
-            //labelViewTitle.font = UIFont..
             
             //Label for description(overlay)
             let labelViewContent = UILabel(frame: CGRect(x: scrollViewWidth * CGFloat(index) + 10,
@@ -119,6 +120,8 @@ class HomeViewController: UIViewController {
             scrImage.addSubview(imageView)
             scrImage.addSubview(labelViewTitle)
             scrImage.addSubview(labelViewContent)
+            
+            
         }
         
         // Set the scrollView contentSize
@@ -127,6 +130,63 @@ class HomeViewController: UIViewController {
         
         // Ensure that the pageControl knows the number of pages
         pageImage.numberOfPages = data.count
+        
+    }
+    
+    func configure2(with data: [InfoData]) {
+        
+        let scrollViewWidth: CGFloat = scrDate.frame.width
+        let scrollViewHeight: CGFloat = scrDate.frame.height
+        
+        for (index, item) in data.enumerated() {
+            //For Scroll View Date
+            //Ref : https://stackoverflow.com/questions/24030348/how-to-create-a-button-programmatically
+            let btnDate = UIButton(frame: CGRect(x: (scrollViewWidth / 7 * CGFloat(index)) + 20,
+                                                 y: 2.5,
+            width: scrollViewWidth / 7,
+            height: scrollViewHeight - 5))
+            btnDate.backgroundColor = .green
+            btnDate.setTitle("Test", for: .normal)
+            
+            let btnDateView = UIView(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)),
+                                                 y: 2.5,
+                                                 width: scrollViewWidth / 6.5,
+            height: scrollViewHeight - 5))
+            btnDateView.backgroundColor = .red
+            btnDateView.layer.cornerRadius = 10
+            
+            
+            let labelViewDay = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 15,
+                                                 y: 1,
+                                                 width: scrollViewWidth / 6.5,
+            height: scrollViewHeight - 35))
+            
+            //Label for title (overlay)
+            labelViewDay.text = "DAY"
+            labelViewDay.textColor = UIColor.white
+            labelViewDay.font = UIFont.preferredFont(forTextStyle: .headline)
+            
+            
+            let labelViewDate = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 10,
+                                                 y: 2.5,
+                                                 width: scrollViewWidth / 6.5,
+            height: scrollViewHeight + 25))
+            
+            //Label for title (overlay)
+            labelViewDate.text = "23"
+            labelViewDate.textColor = UIColor.white
+            labelViewDate.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+            //labelViewDate.font = UIFont(name: "SF Pro Text", size: 30)
+            
+            
+            scrDate.addSubview(btnDateView)
+            scrDate.addSubview(labelViewDay)
+            scrDate.addSubview(labelViewDate)
+        }
+        
+        // Set the scrollView contentSize
+       scrDate.contentSize = CGSize(width: scrDate.frame.width * CGFloat(data.count),
+                                       height: scrDate.frame.height)
         
     }
     
