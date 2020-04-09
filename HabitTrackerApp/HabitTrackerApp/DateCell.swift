@@ -16,20 +16,15 @@ class DateCell: UICollectionViewCell {
     var cellDate:Date!
     var calendar:Calendar!
     var dateString:String = ""
+    var markedColor:UIColor = .white
     
     var currentActiveMonth:Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-//        self.layer.borderWidth = 1
-//        print(self.frame)
-//        self.layer.cornerRadius = 20
-//        bg.frame.size = CGSize(width: 40, height: 40)
-//        bg.layer.cornerRadius = 20
+        
         bg.frame = self.frame
         bg.isUserInteractionEnabled = false
-//        print(self.frame)
     }
     
     
@@ -49,6 +44,7 @@ class DateCell: UICollectionViewCell {
         self.dateLabel.text = "\(day)"
         if month == currentActiveMonth
         {
+            dateLabel.textColor = .black
             bg.backgroundColor = .white
         }
         else
@@ -60,14 +56,18 @@ class DateCell: UICollectionViewCell {
     
     func marked(dateString:String)
     {
-        bg.backgroundColor = .orange
+        bg.backgroundColor = markedColor
     }
     
     func today(dateString:String)
     {
         if self.dateString == dateString
         {
-            layer.borderWidth = 1
+            dateLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        }
+        else
+        {
+            dateLabel.font = UIFont.systemFont(ofSize: 18)
         }
     }
     
@@ -75,11 +75,14 @@ class DateCell: UICollectionViewCell {
     {
         didSet
         {
-//            if isSelected
-//            {
-            
-//                print("\(cellDate!) isSelected \(isSelected)")
-//            }
+            if isSelected
+            {
+                layer.borderWidth = 2
+            }
+            else
+            {
+                layer.borderWidth = 0
+            }
         }
     }
 

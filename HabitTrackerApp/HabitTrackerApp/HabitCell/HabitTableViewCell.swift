@@ -14,6 +14,7 @@ class HabitTableViewCell: UITableViewCell {
     @IBOutlet weak var habitGoal: UILabel!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundProgress: UIView!
+    @IBOutlet weak var selectedView: UIView!
     
     var maxWidth = 358
     
@@ -51,11 +52,30 @@ class HabitTableViewCell: UITableViewCell {
         
         backgroundProgress.layer.cornerRadius = 10
         progressView.layer.cornerRadius = 10
+        
+        selectedView.frame = backgroundProgress.frame
+        selectedView.layer.cornerRadius = 10
+        
         let color:PreDefinedColor = PreDefinedColor(rawValue: habit.color)!
         progressView.layer.backgroundColor = predefinedColorValue[color]?.cgColor
         widthConstraint.constant = CGFloat(Float(progress)/Float(habit.goal) * Float(self.maxWidth))
         
         progressView.updateConstraints()
+    }
+    
+    override var isHighlighted: Bool
+    {
+        didSet
+        {
+            if isHighlighted
+            {
+                selectedView.isHidden = false
+            }
+            else
+            {
+                selectedView.isHidden = true
+            }
+        }
     }
     
 }

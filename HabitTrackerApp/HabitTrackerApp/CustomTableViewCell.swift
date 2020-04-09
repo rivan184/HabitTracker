@@ -19,6 +19,7 @@ class CustomTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        frame = CGRect(origin: frame.origin, size: CGSize(width: frame.size.width, height: 250))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

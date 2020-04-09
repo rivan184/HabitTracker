@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,6 +30,10 @@
                             <constraint firstAttribute="width" constant="358" id="xdg-Nn-tyA"/>
                         </constraints>
                     </view>
+                    <view hidden="YES" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZq-kE-O8l">
+                        <rect key="frame" x="8" y="9" width="359" height="57"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjy-bB-ZJE">
                         <rect key="frame" x="26" y="20" width="42" height="31"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -48,13 +52,17 @@
                     <constraint firstAttribute="trailing" secondItem="qAN-Ng-YL8" secondAttribute="trailing" constant="40" id="Acd-U1-Kct"/>
                     <constraint firstItem="H5d-Go-E7L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="CqJ-ig-h3k"/>
                     <constraint firstItem="H5d-Go-E7L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="HMp-Ns-xwY"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="tZq-kE-O8l" secondAttribute="bottom" constant="-2" id="JbE-o4-mMy"/>
                     <constraint firstAttribute="bottom" secondItem="vAJ-en-wud" secondAttribute="bottom" constant="9" id="Rtg-qr-aPz"/>
                     <constraint firstAttribute="bottom" secondItem="H5d-Go-E7L" secondAttribute="bottom" constant="9" id="cSg-mv-HNg"/>
+                    <constraint firstItem="tZq-kE-O8l" firstAttribute="top" secondItem="H5d-Go-E7L" secondAttribute="top" id="can-3G-bgW"/>
                     <constraint firstItem="vAJ-en-wud" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="dvs-3O-kTT"/>
                     <constraint firstAttribute="bottom" secondItem="xjy-bB-ZJE" secondAttribute="bottom" constant="24" id="env-C6-k9z"/>
                     <constraint firstItem="xjy-bB-ZJE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="h2a-jK-FgR"/>
                     <constraint firstItem="vAJ-en-wud" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="k4g-9Q-P7Q"/>
                     <constraint firstItem="qAN-Ng-YL8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="mcu-2u-txw"/>
+                    <constraint firstItem="tZq-kE-O8l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-12" id="nVi-gd-vrP"/>
+                    <constraint firstItem="tZq-kE-O8l" firstAttribute="trailing" secondItem="H5d-Go-E7L" secondAttribute="trailing" id="x94-ee-LZ7"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -63,6 +71,7 @@
                 <outlet property="habitGoal" destination="qAN-Ng-YL8" id="2m3-iG-wrq"/>
                 <outlet property="habitTitle" destination="xjy-bB-ZJE" id="LRt-1q-28V"/>
                 <outlet property="progressView" destination="vAJ-en-wud" id="G3r-VM-TTq"/>
+                <outlet property="selectedView" destination="tZq-kE-O8l" id="3cv-kJ-CA5"/>
                 <outlet property="widthConstraint" destination="xdg-Nn-tyA" id="4L2-nY-ihL"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="152.34375"/>

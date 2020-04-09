@@ -15,10 +15,11 @@ class NewHabitViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addHabitBtn.layer.cornerRadius = 20
+        self.addHabitBtn.layer.cornerRadius = 10
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 250
     }
 
     
@@ -39,12 +40,12 @@ class NewHabitViewController: UIViewController, UITableViewDelegate, UITableView
         cell.selectionStyle = .none
         let habit = predefinedHabits[indexPath.row]
         
-        cell.layer.cornerRadius = 20
-        cell.cellView.layer.cornerRadius = 20
+        cell.layer.cornerRadius = 10
+        cell.cellView.layer.cornerRadius = 10
         
         cell.habitNameLabel.text = habit.habitName
         cell.habitDescLabel.text = habit.habitDesc
-        cell.habitGoalLabel.text = "\(habit.habitGoal)x"
+        cell.habitGoalLabel.text = "Goal: \(habit.habitGoal)x"
         cell.cellView.backgroundColor = predefinedColorValue[habit.habitColor]
         
         return cell

@@ -13,6 +13,7 @@ protocol CalendarViewDelegate
 {
     func dateSelected(selectedDate:Date)
     func markedDate()->[String]
+    func markedColor()->UIColor
 }
 
 @IBDesignable class CalendarView: UIView {
@@ -42,12 +43,12 @@ protocol CalendarViewDelegate
     var currentDate:Date!
     var currentDateString:String!
     var markedDates:[String]?
+    var markedColor:UIColor = .white
     var delegate:CalendarViewDelegate?
     {
         didSet
         {
             markedDates = delegate?.markedDate()
-//            print("marked \(markedDates)")
         }
     }
     
@@ -83,6 +84,7 @@ protocol CalendarViewDelegate
         addSwipeGesture()
         
     }
+    
     
     func addSwipeGesture()
     {
@@ -153,6 +155,7 @@ protocol CalendarViewDelegate
         
         print("xibSetup")
         loadViewFromNib()
+        
         dateView.register(UINib(nibName: "DateCell", bundle: nil), forCellWithReuseIdentifier: "dateCell")
         dateView.delegate = self
         dateView.dataSource = self
@@ -201,7 +204,10 @@ protocol CalendarViewDelegate
         updateCalendar(monthValue: monthvalue)
     }
 
-    
+    func refresh()
+    {
+        dateView.reloadData()
+    }
 }
 
 extension CalendarView:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
@@ -218,6 +224,11 @@ extension CalendarView:UICollectionViewDelegate, UICollectionViewDataSource,UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
+        cell.markedColor = delegate?.markedColor() ?? .white
+    
+        
+        
+        
         let dateIndex = indexPath.section * collectionView.numberOfItems(inSection: indexPath.section) + indexPath.row
         
         var dc = DateComponents()

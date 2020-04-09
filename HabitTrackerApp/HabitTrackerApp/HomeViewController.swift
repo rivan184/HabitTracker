@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var infoImage: UIImageView!
     @IBOutlet weak var habitList: UITableView!
+    @IBOutlet weak var noHabitLabel: UILabel!
     
     @IBOutlet weak var scrImage: UIScrollView!
     
@@ -21,6 +22,7 @@ class HomeViewController: UIViewController {
     var arrInfoData = [InfoData]()
     var selectedDate:String = ""
     var cCalendar = Calendar.current
+    var selectedCellPath:IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +46,7 @@ class HomeViewController: UIViewController {
         
         let cDate = Date()
         updateSelectedDate(date: cDate)
-        
+        updateView()
         configure(with: arrInfoData)
         
     }
@@ -59,6 +61,7 @@ class HomeViewController: UIViewController {
  
     func updateView()
     {
+        noHabitLabel.isHidden = (dataManager?.habitArr.count != 0)
         habitList.reloadData()
     }
     
@@ -197,6 +200,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         return 80
     }
     
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        selectedCellPath = indexPath
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.isHighlighted = true
+        return true
+    }
+    
+    
+    
     //Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("Tapped index: ", indexPath.row)
@@ -210,7 +222,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //            habitModel[indexPath.row].tapProgress += 1
         }
         //Updating tableView
+//        let cell = tableView.cellForRow(at: indexPath)
+//        cell?.isSelected = true
+        
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        let cell = tableView.cellForRow(at: indexPath)
+//        cell?.isSelected = false
     }
 }
 
@@ -243,6 +263,12 @@ extension HomeViewController {
                 //Segue to habitDetailView
                 let habitData = dataManager?.habitArr[indexPath.row]
                 print(habitData?.description())
+                if selectedCellPath != nil
+                {
+                    let cell = habitList.cellForRow(at: selectedCellPath!) as! HabitTableViewCell
+                    cell.isHighlighted = false
+                    
+                }
                 self.performSegue(withIdentifier: "showHabitDetail", sender: habitData)
                 
             }

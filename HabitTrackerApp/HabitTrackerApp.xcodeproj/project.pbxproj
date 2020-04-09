@@ -20,6 +20,7 @@
 		A186130D24337344009A5F90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A186130C24337344009A5F90 /* Assets.xcassets */; };
 		A186131024337344009A5F90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A186130E24337344009A5F90 /* LaunchScreen.storyboard */; };
 		A194C402243D3B8A000998B0 /* HabitDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A194C401243D3B8A000998B0 /* HabitDataVC.swift */; };
+		A1B87011243EBB650092B73F /* EditHabitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B87010243EBB650092B73F /* EditHabitVC.swift */; };
 		A1DACB14243B2F5900A45B2E /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DACB10243B2F5900A45B2E /* DateCell.swift */; };
 		A1DACB15243B2F5900A45B2E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DACB11243B2F5900A45B2E /* CalendarView.swift */; };
 		A1DACB16243B2F5900A45B2E /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DACB12243B2F5900A45B2E /* DateCell.xib */; };
@@ -48,6 +49,7 @@
 		A186130F24337344009A5F90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A186131124337344009A5F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A194C401243D3B8A000998B0 /* HabitDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDataVC.swift; sourceTree = "<group>"; };
+		A1B87010243EBB650092B73F /* EditHabitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitVC.swift; sourceTree = "<group>"; };
 		A1DACB10243B2F5900A45B2E /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateCell.swift; path = HabitTrackerApp/DateCell.swift; sourceTree = SOURCE_ROOT; };
 		A1DACB11243B2F5900A45B2E /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = HabitTrackerApp/CalendarView.swift; sourceTree = SOURCE_ROOT; };
 		A1DACB12243B2F5900A45B2E /* DateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateCell.xib; path = HabitTrackerApp/DateCell.xib; sourceTree = SOURCE_ROOT; };
@@ -124,6 +126,7 @@
 				A194C401243D3B8A000998B0 /* HabitDataVC.swift */,
 				A186130524337343009A5F90 /* SceneDelegate.swift */,
 				A186130724337343009A5F90 /* HomeViewController.swift */,
+				A1B87010243EBB650092B73F /* EditHabitVC.swift */,
 				A186130924337343009A5F90 /* Main.storyboard */,
 				F4526B0724363C56004B0BB2 /* NewHabitViewController.swift */,
 				A1DACB1C243C666E00A45B2E /* TabBarViewController.swift */,
@@ -233,6 +236,7 @@
 				A1DACB1D243C666E00A45B2E /* TabBarViewController.swift in Sources */,
 				A194C402243D3B8A000998B0 /* HabitDataVC.swift in Sources */,
 				F478ECB7243B08F700291C31 /* Data.swift in Sources */,
+				A1B87011243EBB650092B73F /* EditHabitVC.swift in Sources */,
 				A1DACB1B243BE25E00A45B2E /* AlertViewUtils.swift in Sources */,
 				9957CE6A243C19A600FA9C03 /* InfoData.swift in Sources */,
 				A186130424337343009A5F90 /* AppDelegate.swift in Sources */,
