@@ -46,9 +46,10 @@ let predefinedHabits = [
                     habitColor: PreDefinedColor.YELLOW),
     
     PreDefinedHabit(habitName: "Do Exercise",
-                    habitDesc: "Do Exercise desc",
+                    habitDesc: "Exercise helps people lose weight and lower the risk of some diseases. Exercising regularly decreases a person's risk of developing certain diseases.",
                     habitGoal: 1,
                     habitColor: PreDefinedColor.PINK),
+    
 ]
 
 class Habit
