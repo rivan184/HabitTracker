@@ -42,16 +42,26 @@ class HomeViewController: UIViewController {
         
         //Set Info Data
         arrInfoData = [
-            InfoData(title: "What is Covid-19?", description: "Description about Covid-19 Description about Covid-19 Description about Covid-19 Description about Covid-19 Description about Covid-19", image: "testImage", source: "https://finance.detik.com/energi/d-4959835/jokowi-gratiskan-tagihan-listrik-3-bulan"),
+            InfoData(title: "What is Covid-19?", description: """
+Tum dicere exorsus est cur verear, ne ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut enim ipsam per se esse appetendum, alterum esse vult, summumque malum et, quantum possit, a natura ipsa natura ipsa natura ipsa iudicari etenim quoniam detractis de.
+            <br /> <br />
+
+            Tum dicere exorsus est cur verear, ne ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut enim ipsam per se esse appetendum, alterum esse vult, summumque malum et, quantum possit, a natura ipsa natura ipsa natura ipsa iudicari etenim quoniam detractis de.
+            <br /> <br />
+
+            <b>How does it spread?</b>
+            <br /> <br />
+            Tum dicere exorsus est cur verear, ne ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut enim ipsam per se esse appetendum, alterum esse vult, summumque malum et, quantum possit, a natura ipsa natura ipsa natura ipsa iudicari etenim quoniam detractis de.
+""", image: "testImage", source: "https://finance.detik.com/energi/d-4959835/jokowi-gratiskan-tagihan-listrik-3-bulan"),
             InfoData(title: "Info Covid-19", description: "Description about Info Description about Info Description about Info Description about Info", image: "testImage", source: "https://finance.detik.com/energi/d-4959835/jokowi-gratiskan-tagihan-listrik-3-bulan"),
-            InfoData(title: "Symtoms of Covid-19", description: "Description about symtoms Description about symtoms Description about symtoms Description about symtoms Description about symtoms Description about symtoms", image: "testImage", source: "https://finance.detik.com/energi/d-4959835/jokowi-gratiskan-tagihan-listrik-3-bulan"),
+            InfoData(title: "Symtoms of Covid-19", description: "Description about symtoms Description about symtoms Description about symtoms Description about symtoms Description about symtoms Description about symtoms", image: "testImage", source: "<b>https:</b>//finance.detik.com/energi/d-4959835/jokowi-gratiskan-tagihan-listrik-3-bulan"),
         ]
         
         let cDate = Date()
         updateSelectedDate(date: cDate)
         updateView()
-        configure(with: arrInfoData)
-        configure2()
+        configureImageCarousel(with: arrInfoData)
+        configureHorizontalDate()
     }
     
     func updateSelectedDate(date:Date)
@@ -96,7 +106,7 @@ class HomeViewController: UIViewController {
     
     
     //Image Carousel
-    func configure(with data: [InfoData]) {
+    func configureImageCarousel(with data: [InfoData]) {
         // Get the scrollView width and height
         let scrollViewWidth: CGFloat = scrImage.frame.width
         let scrollViewHeight: CGFloat = scrImage.frame.height
@@ -129,15 +139,14 @@ class HomeViewController: UIViewController {
             
             //Label for description(overlay)
             let labelViewContent = UILabel(frame: CGRect(x: scrollViewWidth * CGFloat(index) + 10,
-                                                         y: 35,
-                                                         width: scrollViewWidth,
+                                                         y: 49,
+                                                         width: scrollViewWidth-10,
                                                          height: scrollViewHeight))
             
             labelViewContent.text = item.description
             labelViewContent.textColor = UIColor.white
             labelViewContent.font = UIFont.preferredFont(forTextStyle: .body)
-            labelViewContent.lineBreakMode = .byWordWrapping
-            labelViewContent.numberOfLines = 2
+            labelViewContent.numberOfLines = 3
             
             
             scrImage.addSubview(imageView)
@@ -156,7 +165,7 @@ class HomeViewController: UIViewController {
         
     }
     
-   func configure2() {
+   func configureHorizontalDate() {
            
            let scrollViewWidth: CGFloat = scrDate.frame.width
            let scrollViewHeight: CGFloat = scrDate.frame.height
@@ -214,7 +223,7 @@ class HomeViewController: UIViewController {
                labelViewDay.font = UIFont.preferredFont(forTextStyle: .headline)
                
                
-               let labelViewDate = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 10,
+               let labelViewDate = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 13,
                                                     y: 2.5,
                                                     width: scrollViewWidth / 6.5,
                height: scrollViewHeight + 25))
@@ -275,7 +284,14 @@ class HomeViewController: UIViewController {
             buttonBefore = sender
         }
         
+    //Send Info Data to InfoView
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let infoView = segue.destination as? InfoViewController{
+            infoView.initData(infoData: arrInfoData[pageImage.currentPage])
+        }
+    }
     
+
     
     
 }

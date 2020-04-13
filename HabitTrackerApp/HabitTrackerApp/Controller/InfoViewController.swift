@@ -24,8 +24,9 @@ class InfoViewController: UIViewController {
         imgMainInfo.layer.cornerRadius = 10
         imgMainInfo.image = UIImage(named : infoData.image)
         txtTitle.text = infoData.title
-        txtMainContent.text = infoData.description
-        txtCredit.text = "Source : \(infoData.source)"
+        txtMainContent.attributedText = infoData.description.htmlToAttributedString
+        //txtCredit.text = "Source : \(infoData.source)"
+        txtCredit.attributedText = infoData.source.htmlToAttributedString
     }
     
     func initData(infoData :InfoData){
@@ -48,5 +49,19 @@ class InfoViewController: UIViewController {
     @IBAction func exitView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         //print("pressed")
+    }
+}
+
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return NSAttributedString() }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return NSAttributedString()
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
     }
 }
