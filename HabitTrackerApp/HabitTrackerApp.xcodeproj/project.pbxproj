@@ -29,6 +29,7 @@
 		A1DACB19243BDE7E00A45B2E /* EmergencyCallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DACB18243BDE7E00A45B2E /* EmergencyCallController.swift */; };
 		A1DACB1B243BE25E00A45B2E /* AlertViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DACB1A243BE25E00A45B2E /* AlertViewUtils.swift */; };
 		A1DACB1D243C666E00A45B2E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DACB1C243C666E00A45B2E /* TabBarViewController.swift */; };
+		A1E3D4B4244308AA00ABF1DD /* HorizontalCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E3D4B3244308A900ABF1DD /* HorizontalCalendar.swift */; };
 		F4526B0624363B7F004B0BB2 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4526B0524363B7F004B0BB2 /* AddHabitViewController.swift */; };
 		F4526B0824363C56004B0BB2 /* NewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4526B0724363C56004B0BB2 /* NewHabitViewController.swift */; };
 		F478ECB7243B08F700291C31 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478ECB6243B08F700291C31 /* Data.swift */; };
@@ -59,6 +60,7 @@
 		A1DACB18243BDE7E00A45B2E /* EmergencyCallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyCallController.swift; sourceTree = "<group>"; };
 		A1DACB1A243BE25E00A45B2E /* AlertViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewUtils.swift; sourceTree = "<group>"; };
 		A1DACB1C243C666E00A45B2E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		A1E3D4B3244308A900ABF1DD /* HorizontalCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCalendar.swift; sourceTree = "<group>"; };
 		F4526B0524363B7F004B0BB2 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		F4526B0724363C56004B0BB2 /* NewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewController.swift; sourceTree = "<group>"; };
 		F478ECB6243B08F700291C31 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				A194C401243D3B8A000998B0 /* HabitDataVC.swift */,
 				A186130524337343009A5F90 /* SceneDelegate.swift */,
 				A186130724337343009A5F90 /* HomeViewController.swift */,
+				A1E3D4B3244308A900ABF1DD /* HorizontalCalendar.swift */,
 				A1B87010243EBB650092B73F /* EditHabitVC.swift */,
 				A186130924337343009A5F90 /* Main.storyboard */,
 				A1341EF5243EEB5100D03A03 /* PreDefinedHabitTC.xib */,
@@ -237,6 +240,7 @@
 				A1DACB19243BDE7E00A45B2E /* EmergencyCallController.swift in Sources */,
 				459678BC24370D3500BE6030 /* CustomTableViewCell.swift in Sources */,
 				A186130824337343009A5F90 /* HomeViewController.swift in Sources */,
+				A1E3D4B4244308AA00ABF1DD /* HorizontalCalendar.swift in Sources */,
 				A1DACB1D243C666E00A45B2E /* TabBarViewController.swift in Sources */,
 				A194C402243D3B8A000998B0 /* HabitDataVC.swift in Sources */,
 				F478ECB7243B08F700291C31 /* Data.swift in Sources */,

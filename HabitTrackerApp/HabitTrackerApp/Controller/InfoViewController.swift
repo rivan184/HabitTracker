@@ -24,8 +24,10 @@ class InfoViewController: UIViewController {
         imgMainInfo.layer.cornerRadius = 10
         imgMainInfo.image = UIImage(named : infoData.image)
         txtTitle.text = infoData.title
-        txtMainContent.text = infoData.description
-        txtCredit.text = "Source : \(infoData.source)"
+//        txtMainContent.attributedText = infoData.description
+//        print(txtMainContent.attributedText)
+        txtMainContent.text = infoData.description.string
+        txtCredit.text = "\(infoData.source)"
     }
     
     func initData(infoData :InfoData){
@@ -50,3 +52,4 @@ class InfoViewController: UIViewController {
         //print("pressed")
     }
 }
+

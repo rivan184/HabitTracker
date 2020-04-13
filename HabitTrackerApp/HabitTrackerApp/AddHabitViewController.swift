@@ -13,7 +13,6 @@ class AddHabitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
-
         // Do any additional setup after loading the view.
     }
     
@@ -36,11 +35,46 @@ class AddHabitViewController: UIViewController {
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var contentView: UIView!
     
+    var predefineHabitName:String?
+    var predefineHabitGoalCount:Int?
+    
     @IBAction func closeModal(_ sender: Any) {
+        var showAlert = false
+        if( predefineHabitName != nil )
+        {
+            if(habitData.name != predefineHabitName ||  habitData.goal != predefineHabitGoalCount)
+            {
+                showAlert = true
+            }
+        }
+        else
+        {
+            if(habitData.name.count > 0 || habitData.goal > 0)
+            {
+                 showAlert = true
+            }
+        }
+        
+        
+        if (showAlert)
+        {
+        
+            showAlertView(view: self, title: "Are you sure?", message: "You will lose all the data.", actionButtonText: "Yes", actionFunction: #selector(dismissModal),cancelButtonText: "No")
+        }
+        else
+        {
+            dismissModal()
+        }
+    }
+    
+    @objc func dismissModal()
+    {
         dismiss(animated: true)
     }
     
     func initialize() {
+        print("Initialize")
+        
         saveBtn.layer.cornerRadius = 10
         /*
         colorPicker1.layer.cornerRadius = 25
@@ -53,7 +87,6 @@ class AddHabitViewController: UIViewController {
         colorPicker3.backgroundColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0.1725490196, alpha: 1)
         colorPicker4.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.3921568627, blue: 0.8588235294, alpha: 1)
  */
-        
         for picker in colorPickers
         {
             picker.layer.cornerRadius = 25
@@ -68,17 +101,12 @@ class AddHabitViewController: UIViewController {
         
         
         goalField.keyboardType = .numberPad
-        
         setupValue()
-        
         //dismiss keyboard when touch the screen
         self.dismissKey()
-        
         //save button
         saveBtn.isEnabled = false
-        
         checkSaveButton()
-        
     }
     
     func checkSaveButton()
@@ -95,18 +123,21 @@ class AddHabitViewController: UIViewController {
     {
         self.rootVC = rootVC
         habitData = Habit(name: "", goal: 0, color: .RED)
-        print(habitData)
+//        print(habitData)
         counter = 0
+        predefineHabitGoalCount = nil
+        predefineHabitName = nil
         if predefinedHabit != nil
         {
             counter = 2
             habitData.name = predefinedHabit!.habitName
-            print("\(habitData.name) \(predefinedHabit!.habitName)")
+//            print("\(habitData.name) \(predefinedHabit!.habitName)")
             habitData.goal = predefinedHabit!.habitGoal
             habitData.color = predefinedHabit!.habitColor.rawValue
+            predefineHabitGoalCount = habitData.goal
+            predefineHabitName = habitData.name
         }
-        print(habitData)
-        
+//        print(habitData)
     }
     
     func setupValue()
@@ -181,18 +212,18 @@ class AddHabitViewController: UIViewController {
         {
             habitData.goal = Int(field) ?? 0
             goalStepper.value = Double(habitData.goal)
-            if habitData.goal >= 0
-            {
-                counter! += 1
-            }
-            else
-            {
-                counter! -= 1
-                if(counter! < 0)
-                {
-                    counter = 0
-                }
-            }
+//            if habitData.goal >= 0
+//            {
+//                counter! += 1
+//            }
+//            else
+//            {
+//                counter! -= 1
+//                if(counter! < 0)
+//                {
+//                    counter = 0
+//                }
+//            }
             
             checkSaveButton()
         }
@@ -220,9 +251,11 @@ extension UIViewController {
     func dismissKey() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer( target: self, action: #selector(UIViewController.dismissKeyboard))
             tap.cancelsTouchesInView = false; view.addGestureRecognizer(tap)
+        
     }
     
     @objc func dismissKeyboard(){
+        print("dismissKeyboard")
         view.endEditing(true)
     }
 }

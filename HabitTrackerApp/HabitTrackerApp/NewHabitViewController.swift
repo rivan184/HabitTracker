@@ -13,18 +13,27 @@ class NewHabitViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addHabitBtn: UIButton!
     
+    var selectedCellPath:IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "PreDefinedHabitTC", bundle: nil), forCellReuseIdentifier: "customTableCell2")
+        tableView.register(UINib(nibName: "PreDefinedHabitTC", bundle: nil), forCellReuseIdentifier: "customCell")
         
         self.addHabitBtn.layer.cornerRadius = 10
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 300
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
     }
-
     
+
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        selectedCellPath = indexPath
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.isHighlighted = true
+        return true
+    }
     @IBAction func addNewHabit(_ sender: Any) {
         self.performSegue(withIdentifier: "toAddHabit", sender: nil)
     }
@@ -34,7 +43,7 @@ class NewHabitViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 210
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,12 +52,12 @@ class NewHabitViewController: UIViewController, UITableViewDelegate, UITableView
         let habit = predefinedHabits[indexPath.row]
         
         cell.layer.cornerRadius = 10
-//        cell.cellView.layer.cornerRadius = 10
-//
-//        cell.habitNameLabel.text = habit.habitName
-//        cell.habitDescLabel.text = habit.habitDesc
-//        cell.habitGoalLabel.text = "Goal: \(habit.habitGoal)x"
-//        cell.cellView.backgroundColor = predefinedColorValue[habit.habitColor]
+        cell.cellView.layer.cornerRadius = 10
+
+        cell.habitNameLabel.text = habit.habitName
+        cell.habitDescLabel.text = habit.habitDesc
+        cell.habitGoalLabel.text = "Goal: \(habit.habitGoal)x"
+        cell.cellView.backgroundColor = predefinedColorValue[habit.habitColor]
         
         return cell
     }
@@ -58,6 +67,11 @@ class NewHabitViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if selectedCellPath != nil
+        {
+            let cell = tableView.cellForRow(at: selectedCellPath!) as! CustomTableViewCell
+            cell.isHighlighted = false
+        }
         var predefinedHabit:PreDefinedHabit? = nil
         if sender != nil
         {

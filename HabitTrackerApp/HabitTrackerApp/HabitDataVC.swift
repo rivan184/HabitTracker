@@ -16,10 +16,8 @@ class HabitDataVC: UIViewController {
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var habitGoalLabel: UILabel!
     @IBOutlet weak var habitColor: UIView!
+    @IBOutlet weak var deleteBtn:UIButton!
     
-//    @IBOutlet weak var goalField: UITextField!
-//    @IBOutlet weak var goalStepper: UIStepper!
-//    @IBOutlet weak var habitField: UITextField!
     @IBOutlet weak var habitName: UILabel!
     @IBOutlet weak var currentGoalForDate: UILabel!
     @IBOutlet weak var currentGoalLabel: UILabel!
@@ -29,36 +27,25 @@ class HabitDataVC: UIViewController {
     var selectedColor:UIButton?
     var rootVC:TabBarViewController?
     
-//    @IBOutlet var colorPickers:[UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        deleteBtn.layer.cornerRadius = 10
         saveButton.layer.cornerRadius = 10
         
         habitColor.layer.cornerRadius = habitColor.frame.size.width * 0.5
         
-//        for picker in colorPickers
-//        {
-//            picker.layer.cornerRadius = 25
-//            picker.backgroundColor = predefinedColorValue[PreDefinedColor(rawValue:picker.tag)!]
-//        }
-//
-//        //stepper action
-//        goalStepper.wraps = true
-//        goalStepper.autorepeat = true
-//        goalStepper.minimumValue = 0
-//        goalStepper.maximumValue = 999
-//
-//
-//        goalField.keyboardType = .numberPad
         for i in boxContainer
         {
             i.layer.cornerRadius = 10
         }
         setupValue()
         calendarView.delegate = self
+
         //dismiss keyboard when touch the screen
         self.dismissKey()
+        
+        
 
     }
     
@@ -106,15 +93,22 @@ class HabitDataVC: UIViewController {
     
     @IBAction func editTapped(_ sender: Any) {
         performSegue(withIdentifier: "editView", sender: nil)
-        /*
-//        print("saveTapped")
-        rootVC?.saveDataManager.updateHabit(habit: habitData)
+    }
+    
+    @IBAction func deleteHabit(_ sender:UIButton)
+    {
+        showAlertView(view: self, title: "Are you sure?", message: "If you delete your habit, you won't be able to access it's details anymore.",actionButtonText:"Delete", actionFunction: #selector(deleteAction),cancelButtonText: "Cancel")
+    }
+    
+    @objc func deleteAction()
+    {
+        rootVC?.saveDataManager.deleteHabit(habit: habitData)
         rootVC?.selectedIndex = 0
         let homeVC = rootVC?.availableViewControllers[0] as! HomeViewController
         homeVC.updateView()
         rootVC?.saveDataManager.save()
-        dismiss(animated: true)
- */
+        
+        dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

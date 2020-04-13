@@ -17,6 +17,7 @@ class DateCell: UICollectionViewCell {
     var calendar:Calendar!
     var dateString:String = ""
     var markedColor:UIColor = .white
+    var month = 0
     
     var currentActiveMonth:Int = 0
     
@@ -33,7 +34,7 @@ class DateCell: UICollectionViewCell {
     {
         self.cellDate = cellDate
         let day = calendar.component(.day, from: cellDate)
-        let month = calendar.component(.month, from: cellDate)
+        month = calendar.component(.month, from: cellDate)
         let year = calendar.component(.year, from: cellDate)
         
         dateString = "\(day)-\(month)-\(year)"
@@ -57,6 +58,16 @@ class DateCell: UICollectionViewCell {
     func marked(dateString:String)
     {
         bg.backgroundColor = markedColor
+        if(month == currentActiveMonth)
+        {
+            dateLabel.textColor = .black
+        }
+        else
+        {
+            
+            dateLabel.textColor = .gray
+            bg.backgroundColor = #colorLiteral(red: 0.8901960784, green: 0.6010586895, blue: 0.5804060188, alpha: 1)
+        }
     }
     
     func today(dateString:String)

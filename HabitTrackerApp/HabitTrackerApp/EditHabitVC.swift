@@ -31,9 +31,25 @@ class EditHabitVC: UIViewController {
     @IBOutlet var colorPickers:[UIButton]!
     @IBOutlet weak var saveBtn: UIButton!
     
+    var oldHabitName = ""
+    var oldHabitGoal = 0
+    
     @IBAction func closeModal(_ sender: Any) {
-        dismiss(animated: true)
+        if habitData.name != oldHabitName || habitData.goal != oldHabitGoal
+        {
+            showAlertView(view: self, title: "Are you sure?", message: "You will lose all the data.", actionButtonText: "Yes", actionFunction: #selector(dismissModal),cancelButtonText: "No")
+        }
+        else
+        {
+            dismissModal()
+        }
     }
+    
+    @objc func dismissModal()
+    {
+       dismiss(animated: true)
+    }
+    
     
     func initialize() {
         saveBtn.layer.cornerRadius = 10
@@ -126,10 +142,7 @@ class EditHabitVC: UIViewController {
     
     @IBAction func saveTapped(_ sender: Any) {
         print("saveTapped")
-//        rootVC?.saveDataManager.addNewHabit(newHabit: habitData)
-//        rootVC?.selectedIndex = 0
 
-        
         habitDataVC?.setupValue()
         
         rootVC?.saveDataManager.updateHabit(habit: habitData)

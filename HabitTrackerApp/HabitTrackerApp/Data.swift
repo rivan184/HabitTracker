@@ -36,12 +36,12 @@ let predefinedColorValue:[PreDefinedColor:UIColor]=[
 
 let predefinedHabits = [
     PreDefinedHabit(habitName: "Dringking Water",
-                    habitDesc: "Hydration is important to your body. Not only it cleanse your digestive system it also refreshes your skin",
+                    habitDesc: "Hydration is important to your body. Not only it cleanse your digestive system it also refreshes your skin.",
                     habitGoal: 10,
                     habitColor: PreDefinedColor.BLUE),
     
     PreDefinedHabit(habitName: "Take Vitamins",
-                    habitDesc: "Making sure your body got enough vitamins can help your health in the long run and strengthen your immune",
+                    habitDesc: "Making sure your body got enough vitamins can help your health in the long run and strengthen your immune.",
                     habitGoal: 3,
                     habitColor: PreDefinedColor.YELLOW),
     
@@ -95,6 +95,7 @@ class Habit
         ]
     }
     
+    
     func update(date:String, value:Int)
     {
         currentGoal[date] = value
@@ -145,20 +146,37 @@ class DataManager
         UserDefaults.standard.synchronize()
         
 // uncomment 2 lines below to use template data
-//        TestData()
-//        save()
+        TestData()
+        save()
         load()
     }
     
     func addNewHabit(newHabit:Habit)
     {
+        newHabit.id = "\(nextID)"
         habitArr.append(newHabit)
-        habitArr[nextID].id = "\(nextID)"
-        print("id \(habitArr[nextID].id)")
+        print("id \(habitArr[nextID].id) \(nextID)")
         print(habitArr.count)
         nextID += 1
         
     }
+    
+    func deleteHabit(habit:Habit)
+    {
+        var habitIndex:Int = 0
+        for i in habitArr
+        {
+            if i.id == habit.id
+            {
+                habitIndex = habitArr.firstIndex(where: {$0 === i})!
+                break
+            }
+            
+        }
+        habitArr.remove(at: habitIndex)
+        save()
+    }
+
     
     func updateHabit(habit:Habit)
     {

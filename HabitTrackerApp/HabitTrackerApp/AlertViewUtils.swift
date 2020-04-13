@@ -9,21 +9,21 @@
 import Foundation
 import UIKit
 
-func showAlertView(view:UIViewController, title:String, message:String)
+func showAlertView(view:UIViewController, title:String, message:String, actionButtonText:String, actionFunction:Selector, cancelButtonText:String)
 {
     let alertView = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)
     
-    let cancelAction = UIAlertAction(title: "Cancel",
+    let cancelAction = UIAlertAction(title: cancelButtonText,
                                      style: .cancel)
     alertView.addAction(cancelAction)
     
-    let callAction = UIAlertAction(title: "Call",
-                                    style: .default,
+    let callAction = UIAlertAction(title: actionButtonText,
+                                    style: .destructive,
                                     handler: { (action:UIAlertAction) in
                                         
-                                            
+                                        view.performSelector(onMainThread: actionFunction, with: view, waitUntilDone: true)
                                              }
                                     )
     
