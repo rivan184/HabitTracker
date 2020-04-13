@@ -46,7 +46,7 @@ let predefinedHabits = [
                     habitColor: PreDefinedColor.YELLOW),
     
     PreDefinedHabit(habitName: "Do Exercise",
-                    habitDesc: "Exercise helps people lose weight and lower the risk of some diseases. Exercising regularly decreases a person's risk of developing certain diseases.",
+                    habitDesc: "Exercise helps people lose weight and lower the risk of some diseases.",
                     habitGoal: 1,
                     habitColor: PreDefinedColor.PINK),
     
@@ -143,12 +143,12 @@ class DataManager
     init()
     {
 //        uncomment this 2 line and run once, to delete all save data
-        UserDefaults.standard.removeObject(forKey: saveDataKey)
-        UserDefaults.standard.synchronize()
+//        UserDefaults.standard.removeObject(forKey: saveDataKey)
+//        UserDefaults.standard.synchronize()
         
 // uncomment 2 lines below to use template data
-        TestData()
-        save()
+//        TestData()
+//        save()
         load()
     }
     
