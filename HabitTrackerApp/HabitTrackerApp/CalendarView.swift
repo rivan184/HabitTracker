@@ -14,6 +14,7 @@ protocol CalendarViewDelegate
     func dateSelected(selectedDate:Date)
     func markedDate()->[String]
     func markedColor()->UIColor
+    func markedColorNotInCurrentMonth()->UIColor
 }
 
 @IBDesignable class CalendarView: UIView {
@@ -225,6 +226,7 @@ extension CalendarView:UICollectionViewDelegate, UICollectionViewDataSource,UICo
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         cell.markedColor = delegate?.markedColor() ?? .white
+        cell.markedColorNotInCurrentMonth = delegate?.markedColorNotInCurrentMonth() ?? .white
     
         
         

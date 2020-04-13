@@ -34,6 +34,13 @@ let predefinedColorValue:[PreDefinedColor:UIColor]=[
     PreDefinedColor.PINK:#colorLiteral(red: 0.9294117647, green: 0.3921568627, blue: 0.8588235294, alpha: 1),
 ]
 
+let predefinedColorValueNotCurrentMonth:[PreDefinedColor:UIColor]=[
+    PreDefinedColor.RED:#colorLiteral(red: 0.8901960784, green: 0.6010586895, blue: 0.5804060188, alpha: 1),
+    PreDefinedColor.BLUE:#colorLiteral(red: 0.5990196079, green: 0.8570588236, blue: 0.9215686275, alpha: 1),
+    PreDefinedColor.YELLOW:#colorLiteral(red: 1, green: 0.9087677725, blue: 0.65, alpha: 1),
+    PreDefinedColor.PINK:#colorLiteral(red: 0.9294117647, green: 0.6041176471, blue: 0.8866723916, alpha: 1),
+]
+
 let predefinedHabits = [
     PreDefinedHabit(habitName: "Dringking Water",
                     habitDesc: "Hydration is important to your body. Not only it cleanse your digestive system it also refreshes your skin.",
@@ -100,6 +107,7 @@ class Habit
     func update(date:String, value:Int)
     {
         currentGoal[date] = value
+        print(currentGoal)
     }
     
     func currentGoalFor(date:String) -> Int

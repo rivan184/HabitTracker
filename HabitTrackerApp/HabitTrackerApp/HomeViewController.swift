@@ -42,7 +42,10 @@ class HomeViewController: UIViewController {
         //imageViewSetting()
         setupCell()
         //        setupData()
+        setupLongPressGestureInfo()
         setupLongPressGesture()
+        setupPanGesture()
+        setupUnPressGesture()
         print("Home ViewController")
         
         
@@ -192,7 +195,7 @@ class HomeViewController: UIViewController {
            
            let duration = 14
 
-           let calendar = Calendar.current
+           let calendar = cCalendar
            let today = Date()
            var dateStart = calendar.date(byAdding: .day, value: ((duration-1) * -1), to: today)!
            
@@ -316,14 +319,14 @@ class HomeViewController: UIViewController {
         let today = Date()
         let chooseDate = calendar.date(byAdding: .day, value: ((duration-(sender.tag)) * -1), to: today)!
         
+        let year = calendar.component(.year, from: chooseDate)
         let day = calendar.component(.day, from: chooseDate)
         let month = calendar.component(.month, from: chooseDate)
-        let year = calendar.component(.year, from: chooseDate)
         let dateString = "\(day)-\(month)-\(year)"
         selectedDate = dateString
         habitList.reloadData()
         
-        print("Date Start = \(dateString)")
+        print("Date Start = \(dateString) \(chooseDate)")
         //format date : tanggal - bulan - tahun
         sender.layer.borderWidth = 1.5
         sender.layer.borderColor = #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
@@ -363,6 +366,10 @@ class HomeViewController: UIViewController {
         
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("moved")
+    }
+    
 }
 
 //MARK: TableView Delegate & Data Source
@@ -384,13 +391,32 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        selectedCellPath = indexPath
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.isHighlighted = true
+//        selectedCellPath = indexPath
+//        let cell = tableView.cellForRow(at: indexPath)
+//        cell?.isHighlighted = true
         return true
     }
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        print("unhighlight")
+//        let cell = tableView.cellForRow(at: indexPath)
+//        cell?.isHighlighted = false
+    }
     
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        print("Deselect")
+    }
     
+    func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+        print("will deselect")
+        if(selectedCellPath != nil)
+        {return selectedCellPath!}
+        else
+        {return indexPath}
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touch end")
+    }
     
     //Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -401,7 +427,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             //Increment habit progress
             selectedHabit?.update(date: selectedDate, value: progress!+1)
         }
-        
+        dataManager?.save()
         tableView.reloadData()
     }
 }
@@ -421,15 +447,73 @@ extension HomeViewController: UIScrollViewDelegate {
 
 
 //MARK: Handle Long Tap Gesture
-extension HomeViewController {
-    func setupLongPressGesture(){
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPres(_:)))
+extension HomeViewController :UIGestureRecognizerDelegate{
+    func setupLongPressGestureInfo(){
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPresInfo(_:)))
         //Long Press Duration in seconds
-        longPressRecognizer.minimumPressDuration = 0.6
+        longPressRecognizer.minimumPressDuration = 0.3
+        longPressRecognizer.delegate = self
         self.view.addGestureRecognizer(longPressRecognizer)
     }
     
+    func setupLongPressGesture(){
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPres(_:)))
+        //Long Press Duration in seconds
+        longPressRecognizer.minimumPressDuration = 1
+        longPressRecognizer.delegate = self
+        self.view.addGestureRecognizer(longPressRecognizer)
+    }
+    
+    func setupPanGesture()
+    {
+        let panGestureRecog = UIPanGestureRecognizer(target: self, action: #selector(self.panGesture(_:)))
+        panGestureRecog.maximumNumberOfTouches = 1
+        panGestureRecog.delegate = self
+        self.view.addGestureRecognizer(panGestureRecog)
+    }
+    
+    func setupUnPressGesture()
+    {
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.unpress(_:)))
+        longPressRecognizer.delegate = self
+        self.view.addGestureRecognizer(longPressRecognizer)
+    }
+    @objc func unpress(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        if longPressGestureRecognizer.state == UIGestureRecognizer.State.ended
+        {
+            if selectedCellPath != nil
+            {
+                let cell = habitList.cellForRow(at: selectedCellPath!)
+                cell?.isHighlighted = false
+                selectedCellPath = nil
+            }
+        }
+    }
+    
+    @objc func panGesture(_ panGestureRecog:UIPanGestureRecognizer)
+    {
+        if selectedCellPath != nil
+        {
+            let cell = habitList.cellForRow(at: selectedCellPath!)
+            cell?.isHighlighted = false
+            selectedCellPath = nil
+        }
+    }
+    
+    @objc func handleLongPresInfo(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
+            let touchPoint = longPressGestureRecognizer.location(in: self.habitList)
+            if let indexPath = habitList.indexPathForRow(at: touchPoint)
+            {
+                selectedCellPath = indexPath
+                let cell = habitList.cellForRow(at: indexPath)
+                cell?.isHighlighted = true
+            }
+        }
+    }
+    
     @objc func handleLongPres(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        print("longPress \(longPressGestureRecognizer.state)")
         if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
             let touchPoint = longPressGestureRecognizer.location(in: self.habitList)
             if let indexPath = habitList.indexPathForRow(at: touchPoint)
@@ -448,5 +532,11 @@ extension HomeViewController {
             }
         }
     }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    
 }
 

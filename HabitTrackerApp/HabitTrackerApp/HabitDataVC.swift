@@ -63,6 +63,7 @@ class HabitDataVC: UIViewController {
             habitData.goal = defaultData!.goal
             habitData.color = defaultData!.color
             habitData.currentGoal = defaultData!.currentGoal
+            print("data \(habitData.currentGoal)")
         }
 //        print(habitData)
         
@@ -92,7 +93,10 @@ class HabitDataVC: UIViewController {
     
     
     @IBAction func editTapped(_ sender: Any) {
-        performSegue(withIdentifier: "editView", sender: nil)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "editView", sender: nil)
+        }
+        
     }
     
     @IBAction func deleteHabit(_ sender:UIButton)
@@ -134,10 +138,15 @@ extension HabitDataVC :CalendarViewDelegate
     }
     
     func markedDate() -> [String] {
+        print("Date \(habitData.currentGoal.keys.sorted())")
         return habitData.currentGoal.keys.sorted()
     }
     
     func markedColor() -> UIColor {
         return predefinedColorValue[PreDefinedColor(rawValue:habitData.color)!]!
+    }
+    
+    func markedColorNotInCurrentMonth() -> UIColor {
+        return predefinedColorValueNotCurrentMonth[PreDefinedColor(rawValue:habitData.color)!]!
     }
 }

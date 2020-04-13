@@ -17,6 +17,7 @@ class DateCell: UICollectionViewCell {
     var calendar:Calendar!
     var dateString:String = ""
     var markedColor:UIColor = .white
+    var markedColorNotInCurrentMonth:UIColor = .white
     var month = 0
     
     var currentActiveMonth:Int = 0
@@ -66,7 +67,7 @@ class DateCell: UICollectionViewCell {
         {
             
             dateLabel.textColor = .gray
-            bg.backgroundColor = #colorLiteral(red: 0.8901960784, green: 0.6010586895, blue: 0.5804060188, alpha: 1)
+            bg.backgroundColor = markedColorNotInCurrentMonth
         }
     }
     
