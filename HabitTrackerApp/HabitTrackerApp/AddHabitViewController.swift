@@ -205,6 +205,7 @@ class AddHabitViewController: UIViewController {
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         habitData.goal = Int(sender.value)
         goalField.text = habitData.goal.description
+        checkSaveButton()
     }
     
     @IBAction func goalFieldChanged(_ sender: Any) {

@@ -10,7 +10,9 @@ import Foundation
 
 struct InfoData {
     var title :String
-    var description:NSMutableAttributedString
+//    var description:NSMutableAttributedString
+    var description:String
+    var imageInfo:String
     var image :String
     var source :String
     

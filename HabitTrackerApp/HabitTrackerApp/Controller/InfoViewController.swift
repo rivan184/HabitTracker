@@ -25,9 +25,12 @@ class InfoViewController: UIViewController {
         imgMainInfo.image = UIImage(named : infoData.image)
         txtTitle.text = infoData.title
 //        txtMainContent.attributedText = infoData.description
+        txtMainContent.attributedText = infoData.description.htmlToAttributedString
 //        print(txtMainContent.attributedText)
-        txtMainContent.text = infoData.description.string
+//        txtMainContent.text = infoData.description.string
         txtCredit.text = "\(infoData.source)"
+        //txtCredit.text = "Source : \(infoData.source)"
+        txtCredit.attributedText = infoData.source.htmlToAttributedString
     }
     
     func initData(infoData :InfoData){
@@ -53,3 +56,16 @@ class InfoViewController: UIViewController {
     }
 }
 
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return NSAttributedString() }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return NSAttributedString()
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
+}

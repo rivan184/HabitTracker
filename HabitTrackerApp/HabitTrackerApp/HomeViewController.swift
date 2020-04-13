@@ -52,33 +52,36 @@ class HomeViewController: UIViewController {
         //Set Info Data
         arrInfoData = [
             InfoData(title: "What is Covid-19?",
-                     description: NSMutableAttributedString.init(string: "On February 11, 2020 the World Health Organization announced an official name for the disease that is causing the 2019 novel coronavirus outbreak, first identified in Wuhan China. The new name of this disease is coronavirus disease 2019, abbreviated as COVID-19. In COVID-19, 'CO' stands for 'corona,' 'VI' for 'virus,' and 'D' for disease. Formerly, this disease was referred to as \"2019 novel coronavirus\" or \"2019-nCoV\".\n\n There are many types of human coronaviruses including some that commonly cause mild upper-respiratory tract illnesses. COVID-19 is a new disease, caused be a novel (or new) coronavirus that has not previously been seen in humans. The name of this disease was selected following the World Health Organization (WHO) best practice for naming of new human infectious diseases."),
+                     description: NSMutableAttributedString.init(string: "<font size=\"5\">On February 11, 2020 the World Health Organization announced an official name for the disease that is causing the 2019 novel coronavirus outbreak, first identified in Wuhan China. The new name of this disease is coronavirus disease 2019, abbreviated as COVID-19. In COVID-19, 'CO' stands for 'corona,' 'VI' for 'virus,' and 'D' for disease. Formerly, this disease was referred to as \"2019 novel coronavirus\" or \"2019-nCoV\".<br><br>There are many types of human coronaviruses including some that commonly cause mild upper-respiratory tract illnesses. COVID-19 is a new disease, caused be a novel (or new) coronavirus that has not previously been seen in humans. The name of this disease was selected following the World Health Organization (WHO) best practice for naming of new human infectious diseases. <font size=\"5\">").string,
+                     imageInfo:"On February 11, 2020 the World Health Organization announced an official name for the disease that is causing the 2019 novel coronavirus outbreak, first identified in Wuhan China. The new name of this disease is coronavirus disease 2019, abbreviated as COVID-19.",
                      image: "covid19",
-                     source: "Images: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS\nSource::https://www.cdc.gov/coronavirus/2019-ncov/faq.html#Coronavirus-Disease-2019-Basics (Why is the disease being called coronavirus disease 2019, COVID-19?)"),
+                     source: "<font size=\"2\">Images: CDC/ Alissa Eckert, MS; Dan Higgins, MAMS<br><a href=\"https://phil.cdc.gov/Details.aspx?pid=2871\">https://phil.cdc.gov/Details.aspx?pid=2871</a><br><br>Source:Why is the disease being called coronavirus disease 2019, COVID-19?<br><a href=\"https://www.cdc.gov/coronavirus/2019-ncov/faq.html#Coronavirus-Disease-2019-Basics\">https://www.cdc.gov/coronavirus/2019-ncov/faq.html#Coronavirus-Disease-2019-Basics</a></font>"),
             InfoData(
                     title: "Symtoms of Covid-19",
-                    description: NSMutableAttributedString.init(string: "Reported illnesses have ranged from mild symptoms to severe illness and death for confirmed coronavirus disease 2019 (COVID-19) cases.\n\nThese symptoms may appear 2-14 days after exposure (based on the incubation period of MERS-CoV viruses).\n- Fever\n- Cough\n- Shortness of breath\n\nWhen to Seek Medical Attention\n\nIf you develop emergency warning signs for COVID-19 get medical attention immediately. Emergency warning signs include*:\n- Trouble breathing\n- Persistent pain or pressure in the chest\n- New confusion or inability to arouse\n- Bluish lips or face\n\n*This list is not all inclusive. Please consult your medical provider for any other symptoms that are severe or concerning."),
+                    description: NSMutableAttributedString.init(string: "<font size=\"5\">Reported illnesses have ranged from mild symptoms to severe illness and death for confirmed coronavirus disease 2019 (COVID-19) cases.<br><br>These symptoms may appear 2-14 days after exposure (based on the incubation period of MERS-CoV viruses).<br><ul><li>Fever<li>Cough<li>Shortness of breath</ul><br><br><font size=\"6\"><b>When to Seek Medical Attention</b></font><br><br><font size=\"5\">If you develop emergency warning signs for COVID-19 get medical attention immediately. Emergency warning signs include*:<br><ul><li>Trouble breathing<li>Persistent pain or pressure in the chest<li>New confusion or inability to arouse<li>Bluish lips or face</ul><br><br>*This list is not all inclusive. Please consult your medical provider for any other symptoms that are severe or concerning.</font>").string,
+                    imageInfo:"Reported illnesses have ranged from mild symptoms to severe illness and death for confirmed coronavirus disease 2019 (COVID-19) cases. These symptoms may appear 2-14 days after exposure (based on the incubation period of MERS-CoV viruses).",
                     image: "symptoms",
-                    source: "Images:https://unsplash.com/photos/-CDN2nTKfrA (Photo by Brittany Colette on Unsplash)\nSource: https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html"),
+                    source: "<font size=\"3\">Images:Photo by Brittany Colette on Unsplash<br><a href=\"https://unsplash.com/photos/-CDN2nTKfrA\">https://unsplash.com/photos/-CDN2nTKfrA</a><br><br>Source: <a href=\"https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html\">https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html</a></font>"),
             InfoData(
                     title: "If You Are Sick",
-                    description: NSMutableAttributedString.init(string: "If you are sick with COVID-19 or suspect you are infected with the virus that causes COVID-19, you should take steps to help prevent the disease from spreading to people in your home and community.\n\nIf you think you have been exposed to COVID-19 and develop a fever and symptoms, such as cough or difficulty breathing, call your healthcare provider for medical advice.\n\nWhat to Do If You Are Sick\n\nStay home except to get medical care\n\n- Stay home. Most people with COVID-19 have mild illness and can recover at home without medical care. Do not leave your home, except to get medical care. Do not visit public areas.\n- Take care of yourself. Get rest and stay hydrated.\n- Stay in touch with your doctor. Call before you get medical care. Be sure to get care if you have trouble breathing, or have any other emergency warning signs, or if you think it is an emergency.\n- Avoid public transportation, ride-sharing, or taxis.\n\nMonitor your symptoms\n\n- Common symptoms of COVID-19 include fever and cough. Trouble breathing is a more serious symptom that means you should get medical attention.\n- Follow care instructions from your healthcare provider and local health department. Your local health authorities may give instructions on checking your symptoms and reporting information."),
+                    description: NSMutableAttributedString.init(string: "<font size=\"5\">If you are sick with COVID-19 or suspect you are infected with the virus that causes COVID-19, you should take steps to help prevent the disease from spreading to people in your home and community.<br><br>If you think you have been exposed to COVID-19 and develop a fever and symptoms, such as cough or difficulty breathing, call your healthcare provider for medical advice.<br><br><font size=\"6\"><b>What to Do If You Are Sick</b></font><br><br>Stay home except to get medical care<br><ul><li><b>Stay home.</b> Most people with COVID-19 have mild illness and can recover at home without medical care. Do not leave your home, except to get medical care. Do not visit public areas.<li><b>Take care of yourself.</b> Get rest and stay hydrated.<li><b>Stay in touch with your doctor.</b> Call before you get medical care. Be sure to get care if you have trouble breathing, or have any other emergency warning signs, or if you think it is an emergency.<li>Avoid public transportation, ride-sharing, or taxis.</ul><br><br>Monitor your symptoms<br><ul><li>Common symptoms of COVID-19 include fever and cough. Trouble breathing is a more serious symptom that means you should get medical attention.<li>Follow care instructions from your healthcare provider and local health department. Your local health authorities may give instructions on checking your symptoms and reporting information.</font>").string,
+                    imageInfo:"f you are sick with COVID-19 or suspect you are infected with the virus that causes COVID-19, you should take steps to help prevent the disease from spreading to people in your home and community. If you think you have been exposed to COVID-19 and develop a fever and symptoms, such as cough or difficulty breathing, call your healthcare provider for medical advice.",
                     image: "ifyouaresick",
-                    source: "Images: https://unsplash.com/photos/ioZc-2TpcjY (Photo by CDC on Unsplash)\nSource: https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html"
+                    source: "<font size=\"3\">Images: Photo by CDC on Unsplash<br><a href=\"https://unsplash.com/photos/ioZc-2TpcjY\">https://unsplash.com/photos/ioZc-2TpcjY</a><br><br>Source: <a href=\"https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html\">https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html</a>"
                     ),
         ]
         
-        var symtomsInfo = arrInfoData[2]
+//        var symtomsInfo = arrInfoData[2]
 //        symtomsInfo.description = updateAttributeString(fullText: symtomsInfo.description.string, changeText: "When to Seek Medical Attention", attributeKey: NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 30))
-        symtomsInfo.description = updateAttributeString(fullText: symtomsInfo.description.string, changeText: symtomsInfo.description.string, attributeKey: NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 30))
+//        symtomsInfo.description = updateAttributeString(fullText: symtomsInfo.description.string, changeText: symtomsInfo.description.string, attributeKey: NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 30))
         
 //
         
         let cDate = Date()
         updateSelectedDate(date: cDate)
         updateView()
-        configureImageInfo(with: arrInfoData)
-        configureHorizontalCalendar()
+        configureImageCarousel(with: arrInfoData)
+        configureHorizontalDate()
     }
     
     func updateSelectedDate(date:Date)
@@ -123,7 +126,7 @@ class HomeViewController: UIViewController {
     
     
     //Image Carousel
-    func configureImageInfo(with data: [InfoData]) {
+    func configureImageCarousel(with data: [InfoData]) {
         // Get the scrollView width and height
         let scrollViewWidth: CGFloat = scrImage.frame.width
         let scrollViewHeight: CGFloat = scrImage.frame.height
@@ -160,10 +163,9 @@ class HomeViewController: UIViewController {
                                                          width: scrollViewWidth-10,
                                                          height: scrollViewHeight))
             
-            labelViewContent.text = item.description.string
+            labelViewContent.text = item.imageInfo
             labelViewContent.textColor = UIColor.white
             labelViewContent.font = UIFont.systemFont(ofSize: 14)
-            labelViewContent.lineBreakMode = .byWordWrapping
             labelViewContent.numberOfLines = 3
             
             
@@ -183,127 +185,127 @@ class HomeViewController: UIViewController {
         
     }
     
-    func configureHorizontalCalendar() {
+   func configureHorizontalDate() {
+           
+           let scrollViewWidth: CGFloat = scrDate.frame.width
+           let scrollViewHeight: CGFloat = scrDate.frame.height
+           
+           let duration = 14
+
+           let calendar = Calendar.current
+           let today = Date()
+           var dateStart = calendar.date(byAdding: .day, value: ((duration-1) * -1), to: today)!
+           
+           scrDate.showsHorizontalScrollIndicator = false;
+           scrDate.showsVerticalScrollIndicator = false;
+           scrDate.delegate = self
+           //Array for Date
+           var arrDate = [Date]()
+           for i in 0...duration-1 {
+            
+               let index = i
+               print("Date End \(dateStart)")
+               
+               let formatter = DateFormatter()
+               
+               formatter.dateFormat = "EEEE"
+               var day = formatter.string(from: dateStart)
+               print("Date End \(day.prefix(3).uppercased())")
+               
+               
+               //For Scroll View Date
+               //Ref : https://stackoverflow.com/questions/24030348/how-to-create-a-button-programmatically
+               /*let btnDate = UIButton(frame: CGRect(x: (scrollViewWidth / 7 * CGFloat(index)) + 20,
+                                                    y: 2.5,
+               width: scrollViewWidth / 7,
+               height: scrollViewHeight - 5))
+               btnDate.backgroundColor = .green
+               btnDate.setTitle("Test", for: .normal)
+               
+               */
+               let btnDateView = UIButton(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)),
+                                                        y: 2.5,
+                                                        width: scrollViewWidth / 6.5,
+                                                        height: scrollViewHeight - 5))
+               btnDateView.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)
+               btnDateView.layer.cornerRadius = 10
+               
+               
+               btnDateView.tag = (i + 1)
+               btnDateView.addTarget(self, action: #selector(dateAction), for: .touchUpInside)
+               
+               let labelViewDay = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 15,
+                                                        y: 1,
+                                                        width: scrollViewWidth / 6.5,
+                                                        height: scrollViewHeight - 35))
+               
+               //Label for title (overlay)
+               labelViewDay.text = day.prefix(3).uppercased()
+               labelViewDay.textColor = UIColor.black
+               labelViewDay.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .heavy)
+               
+               
+               let labelViewDate = UILabel(frame:
+                   CGRect(
+                       x: (scrollViewWidth / 6 * CGFloat(index)) + 10,
+                       y: 2.5,
+                       width: 40,
+                       height: 25
+                   )
+               )
+               
+               //Label for title (overlay)
+               formatter.dateFormat = "dd"
+               day = formatter.string(from: dateStart)
+               
+               labelViewDate.text = day
+               labelViewDate.textColor = UIColor.black
+               labelViewDate.font = UIFont.systemFont(ofSize: 30, weight:.semibold)
+               //labelViewDate.font = UIFont(name: "SF Pro Text", size: 30)
+               //            labelViewDate.frame = CGRect(origin: cgpoi,
+               //                                         size: labelViewDate.frame.size)
+               
+               btnDateView.addSubview(labelViewDate)
+               labelViewDate.textAlignment = .center
+               labelViewDate.frame = CGRect(
+                   origin: CGPoint(x: btnDateView.frame.width * 0.5 - labelViewDate.frame.size.width * 0.5,
+                                   y: btnDateView.frame.height * 0.5),
+                   size: labelViewDate.frame.size)
+               
+               btnDateView.addSubview(labelViewDay)
+               
+               labelViewDay.frame = CGRect(origin: CGPoint.zero, size: labelViewDay.frame.size)
+               labelViewDay.textAlignment = .center
+               labelViewDay.frame = CGRect(
+                   origin: CGPoint(x: btnDateView.frame.width * 0.5 - labelViewDay.frame.size.width * 0.5,
+                                   y: 0),//btnDateView.frame.height * 0.5 - labelViewDay.frame.size.height),
+                   size: labelViewDay.frame.size)
+               
+               
+               if(today == dateStart){
+                   btnDateView.backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
+                   labelViewDate.textColor = UIColor.white
+                   labelViewDay.textColor = UIColor.white
+               }
+               
+               scrDate.addSubview(btnDateView)
+               //               scrDate.addSubview(labelViewDay)
+               //               scrDate.addSubview(labelViewDate)
+               
+               arrDate.append(dateStart)
+               dateStart = calendar.date(byAdding: .day, value: 1, to: dateStart)!
+           }
+           
+           // Set the scrollView contentSize
+          scrDate.contentSize = CGSize(width: scrDate.frame.width / 6 * CGFloat(duration),
+                                          height: scrDate.frame.height)
+           
+           scrDate.setContentOffset(CGPoint(x: scrDate.frame.width / 6 * CGFloat(duration - 6), y: 0), animated: true)
+           
+       }
         
-        let scrollViewWidth: CGFloat = scrDate.frame.width
-        let scrollViewHeight: CGFloat = scrDate.frame.height
         
-        let duration = 14
         
-        let calendar = Calendar.current
-        let today = Date()
-        var dateStart = calendar.date(byAdding: .day, value: (duration-1) * -1, to: today)!
-        scrDate.showsHorizontalScrollIndicator = false;
-        scrDate.showsVerticalScrollIndicator = false;
-        scrDate.delegate = self
-        //Array for Date
-        var arrDate = [Date]()
-        for i in 0...duration-1 {
-            let index = i
-            print("Date End \(dateStart)")
-            
-            let formatter = DateFormatter()
-            
-            formatter.dateFormat = "EEEE"
-            var day = formatter.string(from: dateStart)
-            print("Date End \(day.prefix(3).uppercased())")
-            
-            
-            //For Scroll View Date
-            //Ref : https://stackoverflow.com/questions/24030348/how-to-create-a-button-programmatically
-            /*let btnDate = UIButton(frame: CGRect(x: (scrollViewWidth / 7 * CGFloat(index)) + 20,
-             y: 2.5,
-             width: scrollViewWidth / 7,
-             height: scrollViewHeight - 5))
-             btnDate.backgroundColor = .green
-             btnDate.setTitle("Test", for: .normal)
-             
-             */
-            
-            let btnDateView = UIButton(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)),
-                                                     y: 2.5,
-                                                     width: scrollViewWidth / 6.5,
-                                                     height: scrollViewHeight - 5))
-            btnDateView.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)
-            btnDateView.layer.cornerRadius = 10
-            btnDateView.isExclusiveTouch = true
-            
-            
-            
-            btnDateView.tag = (i + 1)
-            btnDateView.addTarget(self, action: #selector(dateAction), for: .touchUpInside)
-            
-            
-            let labelViewDay = UILabel(frame: CGRect(x: (scrollViewWidth / 6 * CGFloat(index)) + 15,
-                                                     y: 1,
-                                                     width: scrollViewWidth / 6.5,
-                                                     height: scrollViewHeight - 35))
-            
-            //Label for title (overlay)
-            labelViewDay.text = day.prefix(3).uppercased()
-            labelViewDay.textColor = UIColor.black
-            labelViewDay.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .heavy)
-            
-            
-            let labelViewDate = UILabel(frame:
-                CGRect(
-                    x: (scrollViewWidth / 6 * CGFloat(index)) + 10,
-                    y: 2.5,
-                    width: 40,
-                    height: 25
-                )
-            )
-            
-            //Label for title (overlay)
-            formatter.dateFormat = "dd"
-            day = formatter.string(from: dateStart)
-            
-            labelViewDate.text = day
-            labelViewDate.textColor = UIColor.black
-            labelViewDate.font = UIFont.systemFont(ofSize: 30, weight:.semibold)
-            //labelViewDate.font = UIFont(name: "SF Pro Text", size: 30)
-            //            labelViewDate.frame = CGRect(origin: cgpoi,
-            //                                         size: labelViewDate.frame.size)
-            
-            btnDateView.addSubview(labelViewDate)
-            labelViewDate.textAlignment = .center
-            labelViewDate.frame = CGRect(
-                origin: CGPoint(x: btnDateView.frame.width * 0.5 - labelViewDate.frame.size.width * 0.5,
-                                y: btnDateView.frame.height * 0.5),
-                size: labelViewDate.frame.size)
-            
-            btnDateView.addSubview(labelViewDay)
-            
-            labelViewDay.frame = CGRect(origin: CGPoint.zero, size: labelViewDay.frame.size)
-            labelViewDay.textAlignment = .center
-            labelViewDay.frame = CGRect(
-                origin: CGPoint(x: btnDateView.frame.width * 0.5 - labelViewDay.frame.size.width * 0.5,
-                                y: 0),//btnDateView.frame.height * 0.5 - labelViewDay.frame.size.height),
-                size: labelViewDay.frame.size)
-            
-            
-            
-            if(today == dateStart){
-                btnDateView.backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
-                labelViewDate.textColor = UIColor.white
-                labelViewDay.textColor = UIColor.white
-            }
-            
-            scrDate.addSubview(btnDateView)
-            //               scrDate.addSubview(labelViewDay)
-            //               scrDate.addSubview(labelViewDate)
-            
-            arrDate.append(dateStart)
-            dateStart = calendar.date(byAdding: .day, value: 1, to: dateStart)!
-        }
-        
-        // Set the scrollView contentSize
-        scrDate.contentSize = CGSize(width: scrDate.frame.width / 6 * CGFloat(duration),
-                                     height: scrDate.frame.height)
-        
-        scrDate.setContentOffset(CGPoint(x: scrDate.frame.width / 6 * CGFloat(duration - 6), y: 0), animated: true)
-        
-    }
     
     @objc func dateAction(sender :UIButton){
         
@@ -333,6 +335,7 @@ class HomeViewController: UIViewController {
         buttonBefore = sender
     }
     
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
