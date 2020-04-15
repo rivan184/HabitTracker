@@ -43,7 +43,7 @@
 		473D151824378602002AAE71 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		9957CE69243C19A600FA9C03 /* InfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoData.swift; sourceTree = "<group>"; };
 		A1341EF5243EEB5100D03A03 /* PreDefinedHabitTC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreDefinedHabitTC.xib; sourceTree = "<group>"; };
-		A186130024337343009A5F90 /* HabitTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A186130024337343009A5F90 /* Habit+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A186130324337343009A5F90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A186130524337343009A5F90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A186130724337343009A5F90 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		A186130124337343009A5F90 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A186130024337343009A5F90 /* HabitTrackerApp.app */,
+				A186130024337343009A5F90 /* Habit+.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,9 +162,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A18612FF24337343009A5F90 /* HabitTrackerApp */ = {
+		A18612FF24337343009A5F90 /* Habit+ */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A186131424337344009A5F90 /* Build configuration list for PBXNativeTarget "HabitTrackerApp" */;
+			buildConfigurationList = A186131424337344009A5F90 /* Build configuration list for PBXNativeTarget "Habit+" */;
 			buildPhases = (
 				A18612FC24337343009A5F90 /* Sources */,
 				A18612FD24337343009A5F90 /* Frameworks */,
@@ -174,9 +174,9 @@
 			);
 			dependencies = (
 			);
-			name = HabitTrackerApp;
+			name = "Habit+";
 			productName = HabitTrackerApp;
-			productReference = A186130024337343009A5F90 /* HabitTrackerApp.app */;
+			productReference = A186130024337343009A5F90 /* Habit+.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +207,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A18612FF24337343009A5F90 /* HabitTrackerApp */,
+				A18612FF24337343009A5F90 /* Habit+ */,
 			);
 		};
 /* End PBXProject section */
@@ -442,7 +442,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A186131424337344009A5F90 /* Build configuration list for PBXNativeTarget "HabitTrackerApp" */ = {
+		A186131424337344009A5F90 /* Build configuration list for PBXNativeTarget "Habit+" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A186131524337344009A5F90 /* Debug */,
